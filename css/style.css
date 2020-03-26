@@ -50,7 +50,7 @@ section.inspiration h2 {
 section.inspiration h3 {
   font-size: 1.25rem;
 }
-/* ----------------- Search Results  */
+/* --------------------------- Search Results  */
 .media-section {
   margin-top: 70px;
   margin-bottom: 100px;
@@ -85,6 +85,26 @@ section.inspiration h3 {
 }
 .img-media {
   object-fit: cover;
+}
+/* ------------------------- Details  */
+.card-details {
+  background-color: #ffffff;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 40px;
+}
+.card-details h2 {
+  font-size: 1rem;
+}
+.details-rating {
+  font-size: 0.875rem;
+  color: #febb00;
+}
+.text-size {
+  font-size: 0.75rem;
+}
+.font-14 {
+  font-size: 0.875rem;
 }
 /* ------------------------- overwrite Bootstrap  */
 img {
@@ -148,6 +168,10 @@ img {
   .media-wrapper-footer {
     margin-top: 50px;
   }
+   /*Details*/
+   .card-body {
+    padding: 1.25rem 0;
+  }
 }
 @media (max-width: 767px) {
   /*Search Results*/
@@ -156,5 +180,9 @@ img {
   }
   .media-wrapper-footer {
     margin-top: 70px;
+  }
+   /*Details*/
+   .details-rating {
+    display: block;
   }
 }
