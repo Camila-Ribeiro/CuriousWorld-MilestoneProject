@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Montserrat&display=swap" rel="stylesheet">
+    
+    <link href="css/style.css" rel="stylesheet">
+    <title>Google Places</title>
+</head>
+<body>
+    <header>
+    <!--Navbar-->
+    <nav class="navbar navbar-dark bg-dark"">
+
+    <!-- Navbar brand -->
+    <a class="navbar-brand " href="index.html">Curious World</a>
+  
+    <!-- Collapse button -->
+    <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+      aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i class="fa fa-bars"></i></span></button>
+  
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+  
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#">Top Rated</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact Us</a>
+        </li>
+      </ul>
+      <!-- Links -->
+  
+    </div>
+    <!-- Collapsible content -->
+  
+    </nav>
+    <!--/Navbar-->
+    </header>
+    <!--Section-->
+    <section class="container-hero">
+        <div class="hero-img">
+            <div class="container m-jumbotron">
+                <div class="hero-tittle">
+                    <h1 class="text-center">Explore The World</h1>
+                    <p class="text-center">Here is where your journey begins...</p>
+                </div>
+                <div class="jumbotron">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Location" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button onclick="location.href='search-results.html'" class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                        </div>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="inlineHotels" value="Hotels">
+                    <label class="form-check-label" for="inlineCheckbox1">Hotels</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="inlineRestautants" value="Restaurants">
+                    <label class="form-check-label" for="inlineCheckbox2">Restaurants</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="inlineMuseums" value="Museums">
+                    <label class="form-check-label" for="inlineCheckbox2">Museums</label>
+                  </div>
+                </div>
+            </div>
+        </div>  
+    </section>
+    <section class="inspiration">
+        <div class="container">
+            <h1 class="mb-3">Inspire Me</h1>
+            
+            <div class="container mb-5 media-container">
+                <h2 class="mt-2">Hotels</h2>
+                <div class="row">
+                  <div class="col-sm">
+                    <h3>Title</h3>
+                    <a href="detail-page.html">
+                      <img class="img-insp" src="images/Greece-Header-Photo-1600x857.jpg.optimal.jpg" alt="Responsive image">
+                    </a>
+                    <h6 class="mt-2"><span class="details-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></span></h6>
+                  </div>
+                  <div class="col-sm">
+                    <h3>Title</h3>
+                    <a href="detail-page.html">
+                      <img class="img-insp" src="images/Greece-Header-Photo-1600x857.jpg.optimal.jpg" alt="Responsive image">
+                    </a>
+                    <h6 class="mt-2"><span class="details-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></span></h6>
+                  </div>
+                  <div class="col-sm">
+                    <h3>Title</h3>
+                    <a href="detail-page.html">
+                      <img class="img-insp" src="images/Greece-Header-Photo-1600x857.jpg.optimal.jpg" alt="Responsive image">
+                    </a>
+                    <h6 class="mt-2"><span class="details-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></span></h6>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="container mb-5 media-container">
+                <h2 class="mt-2">Restaurants</h2>
+                  <div class="row">
+                    <div class="col-sm">
+                      <h3>Title</h3>
+                      <a href="detail-page.html">
+                        <img class="img-insp" src="images/Greece-Header-Photo-1600x857.jpg.optimal.jpg" alt="Responsive image">
+                      </a>
+                      <h6 class="mt-2"><span class="details-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></span></h6>
+                    </div>
+                    <div class="col-sm">
+                      <h3>Title</h3>
+                      <a href="detail-page.html">
+                        <img class="img-insp" src="images/Greece-Header-Photo-1600x857.jpg.optimal.jpg" alt="Responsive image">
+                      </a>
+                      <h6 class="mt-2"><span class="details-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></span></h6>
+                    </div>
+                    <div class="col-sm">
+                      <h3>Title</h3>
+                      <a href="detail-page.html">
+                        <img class="img-insp" src="images/Greece-Header-Photo-1600x857.jpg.optimal.jpg" alt="Responsive image">
+                      </a>
+                      <h6 class="mt-2"><span class="details-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></span></h6>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="container mb-5 media-container">
+                  <h2 class="mt-2">Museums</h2>
+                    <div class="row">
+                      <div class="col-sm">
+                        <h3>Title</h3>
+                        <a href="detail-page.html">
+                          <img class="img-insp" src="images/Greece-Header-Photo-1600x857.jpg.optimal.jpg" alt="Responsive image">
+                        </a>
+                        <h6 class="mt-2"><span class="details-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></span></h6>
+                      </div>
+                      <div class="col-sm">
+                        <h3>Title</h3>
+                        <a href="detail-page.html">
+                          <img class="img-insp" src="images/Greece-Header-Photo-1600x857.jpg.optimal.jpg" alt="Responsive image">
+                        </a>
+                        <h6 class="mt-2"><span class="details-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></span></h6>
+                      </div>
+                      <div class="col-sm">
+                        <h3>Title</h3>
+                        <a href="detail-page.html">
+                          <img class="img-insp" src="images/Greece-Header-Photo-1600x857.jpg.optimal.jpg" alt="Responsive image">
+                        </a>
+                        <h6 class="mt-2"><span class="details-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></span></h6>
+                      </div>
+                    </div>
+                  </div>
+            <div>
+            </div>
+        </div>
+    </section>
+    <!--/Section-->
+
+    <!--Footer-->
+    <footer>
+        <h6>Copyright</h6>
+    </footer>
+    <!--/Footer-->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
