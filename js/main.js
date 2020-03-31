@@ -1,47 +1,3 @@
-// let xhr = new XMLHttpRequest();
-// let data;
-
-// xhr.open("GET", "https://maps.googleapis.com/maps/api/place/textsearch/json?query=hotels&key=AIzaSyAOySuSdP6NVXz7LglBAl1sp1CHXrZeFqQ);
-// xhr.send()
-
-// function setData(jsonData) {
-//     debugger;
-//    data = jsonData;
-//    console.log(data);
-// }
-
-// xhr.onreadystatechange = function() {
-
-//    if (this.readyState == 4 && this.status == 200) {
-//        setData(JSON.parse(this.responseText));
-//    }
-// };
-
-// let url =
-//   "https://maps.googleapis.com/maps/api/place/textsearch/json?query=";
-
-// let url =
-//   "https://maps.googleapis.com/maps/api/place/textsearch/json?query=hotels&key=AIzaSyAOySuSdP6NVXz7LglBAl1sp1CHXrZeFqQ";
-// let query = "hotel";
-// let loc = "+paris";
-// let key = "&key=AIzaSyAOySuSdP6NVXz7LglBAl1sp1CHXrZeFqQ";
-
-// var xhr = new XMLHttpRequest();
-
-// xhr.onreadystatechange = function() {
-//   if (this.readyState == 4 && this.status == 200) {
-//     console.log(JSON.parse(this.responseText));
-//   }
-// };
-
-// xhr.open("GET", url);
-// xhr.setRequestHeader("Content-type", "application/json");
-// xhr.setRequestHeader("Content-Encoding", "gzip");
-// xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-// xhr.setRequestHeader("Access-Control-Allow-Credentials", true);
-
-// xhr.send();
-
 //Create the XHR object.
 function createCORSRequest(method, url) {
   var xhr = new XMLHttpRequest();
@@ -59,16 +15,11 @@ function createCORSRequest(method, url) {
   return xhr;
 }
 
-// Helper method to parse the title tag from the response.
-function getTitle(text) {
-  console.log(JSON.parse(text));
-}
-
 // Make the actual CORS request.
 function makeCorsRequest() {
   // This is a sample server that supports CORS.
   var url =
-    "https://maps.googleapis.com/maps/api/place/textsearch/json?query=hotels&key=AIzaSyAOySuSdP6NVXz7LglBAl1sp1CHXrZeFqQ";
+    "https://api.foursquare.com/v2/venues/explore?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323&limit=50&ll=48.8566, 2.3522&query=hotels";
 
   var xhr = createCORSRequest("GET", url);
   if (!xhr) {
@@ -78,9 +29,10 @@ function makeCorsRequest() {
 
   // Response handlers.
   xhr.onload = function() {
-    var text = xhr.responseText;
-    var title = getTitle(text);
-    alert("Response from CORS request to " + url + ": " + title);
+    var resp = xhr.response;
+    var data = JSON.parse(resp).response.groups[0].items;
+    getAllData(data);
+    //alert("Response from CORS request to " + url + ": " + title);
   };
 
   xhr.onerror = function() {
@@ -90,3 +42,49 @@ function makeCorsRequest() {
   xhr.send();
 }
 makeCorsRequest();
+
+function getAllData(data) {
+  // console.log(data);
+  getTitle(data);
+}
+
+function getTitle(data) {
+    console.log(data)
+  var list = Object.keys(data);
+
+  for (let index = 1; index < list.length; index++) {
+    if (list.length >= 4 && index < 4) {
+      var randomIndex = Math.floor(Math.random() * list.length);
+      var randomObject = data[list[randomIndex]];
+      var hotelName = document.getElementById("hotels_insp_" + index);
+      hotelName.innerHTML = randomObject.venue.name;
+
+      var hotelId = randomObject.venue.id;
+      console.log(hotelId)
+    }
+  }
+}
+
+window.addEventListener("load", function() {
+  console.log("All assets are loaded");
+  //   var options = {
+  //     enableHighAccuracy: true,
+  //     timeout: 5000,
+  //     maximumAge: 0
+  //   };
+
+  //   function success(pos) {
+  //     var crd = pos.coords;
+
+  //     console.log('Your current position is:');
+  //     console.log(`Latitude : ${crd.latitude}`);
+  //     console.log(`Longitude: ${crd.longitude}`);
+  //     console.log(`More or less ${crd.accuracy} meters.`);
+  //   }
+
+  //   function error(err) {
+  //     console.warn(`ERROR(${err.code}): ${err.message}`);
+  //   }
+
+  //   navigator.geolocation.getCurrentPosition(success, error, options);
+});
