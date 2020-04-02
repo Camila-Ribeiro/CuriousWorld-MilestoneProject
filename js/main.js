@@ -1,10 +1,6 @@
-
-
 var url =
 "https://api.foursquare.com/v2/venues/explore?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323&limit=50&ll=48.8566, 2.3522&query=";
-
-
-
+var collectAllVenuesId = [];
 
 function getAllData(url, callback) {
     var xhr = new XMLHttpRequest();
@@ -22,30 +18,18 @@ function getAllData(url, callback) {
 }
 
 function populateInspiration(places, endFunc) {
-    if(places === "hotels") {
-        getAllData(url + places, function(resp) {
+    getAllData(url + places, function(resp) {
+        data = JSON.parse(resp).response.groups[0].items;
+        var list = Object.keys(data);
 
-            data = JSON.parse(resp).response.groups[0].items;            
-            var list = Object.keys(data);
+        if (places != "museums") {
             endFunc(getRandomItems(list, data, places))
-        });
-    }
-    else if (places === "restaurants") {
-        getAllData(url + places, function(resp) {
-            data = JSON.parse(resp).response.groups[0].items;
-            var list = Object.keys(data);
-            endFunc(getRandomItems(list, data, places))
-        });
-    }
-    else if (places === "museums") {
-        getAllData(url + places, function(resp) {
-            data = JSON.parse(resp).response.groups[0].items;
-            var list = Object.keys(data);
+        }else{
             getRandomItems(list, data, places)
-        });
-    }
-      
+        }
+    });
 }
+
 //CALLING FUNCTION
 populateInspiration("hotels",function(){
     populateInspiration("restaurants",function(){
@@ -60,29 +44,18 @@ function getRandomItems(list, data, places) {
         if (list.length >= 4 && index < 4) {
         var randomIndex = Math.floor(Math.random() * list.length);
         var randomObject = data[list[randomIndex]];
-        
-        getDetails(randomObject,index,places);
-        
-        
-        var venuesId = [randomObject.venue.id];
-        // var newArr = [];
-        // newArr.push(venuesId)
-        // // console.log(newArr)   
-        // var merged = [].concat.apply([], newArr);
 
-        console.log(venuesId);
+        collectAllVenuesId.push(randomObject.venue.id);
+        getTitleInspiration(randomObject,index,places);        
         }
     }
 }
 
-//GET DETAILS (VENUE NAME, VENUE ID)
-function getDetails(obj,i,places) {
-    
+//GET INSPIRATION TITLES
+function getTitleInspiration(obj,i,places) {
     if(places === "hotels") {
         var hotelName = document.getElementById("hotels_insp_" + i);
         hotelName.innerHTML = obj.venue.name;
-        
-        //getPhotoRating(venuesId)
     }
     else if(places === "restaurants") {
         var restName = document.getElementById("rest_insp_" + i);
@@ -92,17 +65,10 @@ function getDetails(obj,i,places) {
         var museumName = document.getElementById("museum_insp_" + i);
         museumName.innerHTML = obj.venue.name;
     }
-   
-    
 }
 
-function getPhotoRating(venuesId) {
-    
 
-
-
-console.log(venuesId);
-   
+function getPhotoAndRating(id) {
  // console.log(merged)
  // for (let index = 0; index < arr.length; index++) {
  //     const element = arr[index];
@@ -115,14 +81,7 @@ console.log(venuesId);
  //         // getPicture.innerHTML = element;
  //     });
  // }
- 
-
 }
-
-
-
-
-
 
 
 window.addEventListener("load", function() {
