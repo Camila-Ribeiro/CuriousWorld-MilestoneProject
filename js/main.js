@@ -26,13 +26,13 @@ function populateInspiration(places, cb) {
 }
 
 //CALLING API INTO INSPIRE ME SECTION
-populateInspiration("hotels",function(){
-    populateInspiration("restaurants",function(){
-        populateInspiration("museums", function(){
-            getURLVenuesId(collectAllVenuesId);
-        })  
-    })
-});
+// populateInspiration("hotels",function(){
+//     populateInspiration("restaurants",function(){
+//         populateInspiration("museums", function(){
+//             getURLVenuesId(collectAllVenuesId);
+//         })  
+//     })
+// });
 
 
 //LOOP RANDOM ITEMS INTO INSPIRE ME SECTION
@@ -99,15 +99,19 @@ function getPhotos(i,url) {
 var btnSearch = document.getElementById("button_search");
 var inputLoc = document.getElementById("places_loc");
 var inputMessage = document.getElementById("places_loc_error");
+
 btnSearch.onclick = function(){
+    var radioPlaces = document.querySelector('input[name="places"]:checked').value;
+    
     if (inputLoc.value == "" ||  inputLoc.value == null) {
         inputLoc.classList.add("border-danger");
         inputMessage.style.display = "block"; 
+        
      }else{
-        window.location.href='search-results.html';
+        window.location.href='search-results.html' + inputLoc.value + radioPlaces;
      }
-
 };
+
 inputLoc.oninput = function(){
     if (inputLoc.value == "" ||  inputLoc.value == null) {
         inputLoc.classList.add("border-danger");
