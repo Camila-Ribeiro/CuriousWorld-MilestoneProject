@@ -95,6 +95,29 @@ function getPhotos(i,url) {
     });
 }
 
+// GET SEARCH
+var btnSearch = document.getElementById("button_search");
+var inputLoc = document.getElementById("places_loc");
+var inputMessage = document.getElementById("places_loc_error");
+btnSearch.onclick = function(){
+    if (inputLoc.value == "" ||  inputLoc.value == null) {
+        inputLoc.classList.add("border-danger");
+        inputMessage.style.display = "block"; 
+     }else{
+        window.location.href='search-results.html';
+     }
+
+};
+inputLoc.oninput = function(){
+    if (inputLoc.value == "" ||  inputLoc.value == null) {
+        inputLoc.classList.add("border-danger");
+        inputMessage.style.display = "block"; 
+     }else{
+        inputLoc.classList.remove("border-danger");
+        inputMessage.style.display = "none"; 
+    }
+};
+
 window.addEventListener("load", function() {
 //   console.log("All assets are loaded");
 //     var options = {
