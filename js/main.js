@@ -71,6 +71,7 @@ function getURLVenuesId(id) {
         var elementID = arrId[index];
         var url = "https://api.foursquare.com/v2/venues/" + elementID + "/?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323";    
         getRatings(index,url);
+        getPhotos(index,url);
     }
 }
 
@@ -80,6 +81,17 @@ function getRatings(i,url) {
         var rating = JSON.parse(resp).response.venue.rating; 
         var getSingleRating = document.getElementById("rating_" + (i+1));
         getSingleRating.insertAdjacentHTML("beforeend", rating); 
+    });
+}
+
+// GET ALL VENUE's PHOTOS
+function getPhotos(i,url) {
+    getAllData(url, function(resp) {
+        var photos = JSON.parse(resp).response.venue.photos.groups[0].items[0]; 
+        var url = photos.prefix + photos.width + "x" + photos.height + photos.suffix;
+        var getSinglePhoto = document.getElementById("photo_" + (i+1));
+        getSinglePhoto.src = url;
+
     });
 }
 
