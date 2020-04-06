@@ -2,13 +2,13 @@ var url =
 "https://api.foursquare.com/v2/venues/explore?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323&limit=50&ll=48.8566, 2.3522&query=";
 var collectAllVenuesId = [];
 
+// SEND REQUEST
 function getAllData(url, callback) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
             callback(this.responseText);
-            // console.log(typeof(xhr.responseText))
         }
     }
     xhr.onerror = function() {
@@ -17,72 +17,71 @@ function getAllData(url, callback) {
     xhr.send();
 }
 
-function populateInspiration(places, endFunc) {
+function populateInspiration(places, cb) {
     getAllData(url + places, function(resp) {
         data = JSON.parse(resp).response.groups[0].items;
         var list = Object.keys(data);
-
-        if (places != "museums") {
-            endFunc(getRandomItems(list, data, places))
-        }else{
-            getRandomItems(list, data, places)
-        }
+        cb(getRandomItems(list, data, places))
     });
 }
 
-//CALLING FUNCTION
+//CALLING API INTO INSPIRE ME SECTION
 populateInspiration("hotels",function(){
     populateInspiration("restaurants",function(){
-        populateInspiration("museums");
+        populateInspiration("museums", function(){
+            getURLVenuesId(collectAllVenuesId);
+        })  
     })
 });
 
 
-//LOOP RANDOM ITEMS - BRING PLACES PARAM IN ORDER TO GET EACH DETAILS
+//LOOP RANDOM ITEMS INTO INSPIRE ME SECTION
 function getRandomItems(list, data, places) {
-    for (let index = 1; index < list.length; index++) {   
-        if (list.length >= 4 && index < 4) {
-        var randomIndex = Math.floor(Math.random() * list.length);
-        var randomObject = data[list[randomIndex]];
+    for (let index = 0; index < list.length; index++) {   
+        if (list.length >= 3 && index < 3) {
+            var randomIndex = Math.floor(Math.random() * list.length);
+            var randomObject = data[list[randomIndex]];
 
-        collectAllVenuesId.push(randomObject.venue.id);
-        getTitleInspiration(randomObject,index,places);        
+            collectAllVenuesId.push(randomObject.venue.id);
+            getTitleInspiration(randomObject,index,places);        
         }
     }
 }
 
-//GET INSPIRATION TITLES
+//GET VENUES's TITLE INTO INSPIRE ME SECTION
 function getTitleInspiration(obj,i,places) {
     if(places === "hotels") {
-        var hotelName = document.getElementById("hotels_insp_" + i);
+        var hotelName = document.getElementById("hotels_insp_" + (i+1));
         hotelName.innerHTML = obj.venue.name;
     }
     else if(places === "restaurants") {
-        var restName = document.getElementById("rest_insp_" + i);
+        var restName = document.getElementById("rest_insp_" + (i+1));
         restName.innerHTML = obj.venue.name;
     }
     else if(places === "museums") {
-        var museumName = document.getElementById("museum_insp_" + i);
+        var museumName = document.getElementById("museum_insp_" + (i+1));
         museumName.innerHTML = obj.venue.name;
     }
 }
 
-
-function getPhotoAndRating(id) {
- // console.log(merged)
- // for (let index = 0; index < arr.length; index++) {
- //     const element = arr[index];
- //     var url = "https://api.foursquare.com/v2/venues/" + element + "/?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323";    
-     
- //     getAllData(url, function(resp) {
- //         var data = JSON.parse(resp).response.venue.rating; 
- //         console.log(data)
- //         //     var getPicture = document.getElementById("hotel_pic_" + index);
- //         // getPicture.innerHTML = element;
- //     });
- // }
+// GET ALL VENUES's URL
+function getURLVenuesId(id) {  
+    var arrId = id;
+    for (let index = 0; index < arrId.length; index++) {
+        var elementID = arrId[index];
+        var url = "https://api.foursquare.com/v2/venues/" + elementID + "/?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323";    
+        getRatings(index,url);
+    }
 }
 
+// GET ALL VENUE's RATINGS 
+function getRatings(i,url) {
+    getAllData(url, function(resp) {
+        var rating = JSON.parse(resp).response.venue.rating; 
+        var getSingleRating = document.getElementById("rating_" + (i+1));
+        getSingleRating.insertAdjacentHTML("beforeend", rating); 
+    });
+}
 
 window.addEventListener("load", function() {
 //   console.log("All assets are loaded");
