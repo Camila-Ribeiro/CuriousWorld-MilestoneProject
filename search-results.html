@@ -47,7 +47,12 @@
     <!--/Navbar-->
     </header>
     <!--Section-->
-    
+    <section id="no_results" class="media-section d-none">
+        <div class="container">
+            <h1 class="mb-3">There is no results found.</h1>
+            <button "type="button" class="btn btn-warning" onclick="window.history.back();">Back to Homepage</button>
+        </div>
+    </section>
     <section id="results_found" class="media-section">
         <div class="container">
             <h1 class="mb-3">Search results for <span id="city_place"></span> in <span id="city_location"></span></h1>

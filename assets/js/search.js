@@ -9,6 +9,22 @@ window.addEventListener("load", function() {
     function populateCards() {
         getAllData(urlSearch, function(resp) {
             data = JSON.parse(resp).response.venues;
+            if (data == "" || data  == null) {
+                var noResults= document.getElementById("no_results");
+                var resultsFound= document.getElementById("results_found");
+                noResults.classList.remove("d-none");
+                resultsFound.classList.add("d-none");
+            }
+            // var list = Object.keys(data);
+            
+            // for (let index = 0; index < list.length; index++) {
+            //     if (list.length >= 9 && index < 9) {
+            //         print 10 card places
+            //     } else {
+            //         print on next page
+            //     }
+            
+            // }
             
             console.log(data)
         });
@@ -30,4 +46,6 @@ function getAllData(url, callback) {
     };
     xhr.send();
 }
+
+
 
