@@ -19,7 +19,7 @@ window.addEventListener("load", function() {
             for (let index = 0; index < data.length; index++) {
                 var place = data[index];
                 html.push('<div class="row"><div class="col"><div class="media mb-3 media-container"><img src="https://placehold.co/350x250" class="img-media" alt="...">' + 
-                   '<div class="media-body"><div class="media-wrapper"><h2 class="mt-0">'+ place.name + '</h2><p>'+ (place.location.address?place.location.address + ', ':"") + place.location.city + '<br/> ' + place.location.country +'</p><div class="media-wrapper-footer">'+ 
+                   '<div class="media-body"><div class="media-wrapper"><h2 class="mt-0">'+ place.name + '</h2><p>'+ (typeof place.location.address === "undefined" ? "" :place.location.address + ', ') + (typeof place.location.city === "undefined" ? "" :place.location.city + '<br/> ')  + (place.location.country?place.location.country :"") +'</p><div class="media-wrapper-footer">'+ 
                     '<button onclick="location.href=" "type="button" class="btn btn-warning float-right" data-toggle="button">'+ 
                     'Read More</button><span class="details-rating"><i class="fa fa-star"></i></span><p>30 reviews</p> '+
                     '</div></div></div></div></div></div>')
