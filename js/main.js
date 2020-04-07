@@ -25,15 +25,14 @@ function populateInspiration(places, cb) {
     });
 }
 
-//CALLING API INTO INSPIRE ME SECTION
-// populateInspiration("hotels",function(){
-//     populateInspiration("restaurants",function(){
-//         populateInspiration("museums", function(){
-//             getURLVenuesId(collectAllVenuesId);
-//         })  
-//     })
-// });
-
+// CALLING API INTO INSPIRE ME SECTION
+populateInspiration("hotels",function(){
+    populateInspiration("restaurants",function(){
+        populateInspiration("museums", function(){
+            getURLVenuesId(collectAllVenuesId);
+        })  
+    })
+});
 
 //LOOP RANDOM ITEMS INTO INSPIRE ME SECTION
 function getRandomItems(list, data, places) {
@@ -121,6 +120,19 @@ inputLoc.oninput = function(){
         inputMessage.style.display = "none"; 
     }
 };
+
+
+
+window.onload = function() {
+    var urlSearch = "https://api.foursquare.com/v2/venues/search?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323&limit=50&ll=53.350140, -6.266155&query=" + radioPlaces + "&near=" + inputLoc.value;
+    var inputLoc = document.getElementById("places_loc");
+    var radioPlaces = document.querySelector('input[name="places"]:checked').value;
+
+    var getInput = prompt("Hey type something here: ");
+    localStorage.setItem("storageName",getInput);
+
+    
+ }
 
 window.addEventListener("load", function() {
 //   console.log("All assets are loaded");
