@@ -86,6 +86,9 @@ section.inspiration h3 {
 .img-media {
   object-fit: cover;
 }
+#city_location {
+  text-transform: capitalize;
+}
 /* ------------------------- Details  */
 .card-details {
   background-color: #ffffff;

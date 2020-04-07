@@ -26,13 +26,13 @@ function populateInspiration(places, cb) {
 }
 
 // CALLING API INTO INSPIRE ME SECTION
-populateInspiration("hotels",function(){
-    populateInspiration("restaurants",function(){
-        populateInspiration("museums", function(){
-            getURLVenuesId(collectAllVenuesId);
-        })  
-    })
-});
+// populateInspiration("hotels",function(){
+//     populateInspiration("restaurants",function(){
+//         populateInspiration("museums", function(){
+//             getURLVenuesId(collectAllVenuesId);
+//         })  
+//     })
+// });
 
 //LOOP RANDOM ITEMS INTO INSPIRE ME SECTION
 function getRandomItems(list, data, places) {
@@ -100,14 +100,17 @@ var inputLoc = document.getElementById("places_loc");
 var inputMessage = document.getElementById("places_loc_error");
 
 btnSearch.onclick = function(){
+    sessionStorage.clear();
     var radioPlaces = document.querySelector('input[name="places"]:checked').value;
     
     if (inputLoc.value == "" ||  inputLoc.value == null) {
-        inputLoc.classList.add("border-danger");
-        inputMessage.style.display = "block"; 
+            inputLoc.classList.add("border-danger");
+            inputMessage.style.display = "block"; 
         
      }else{
-        window.location.href='search-results.html' + inputLoc.value + radioPlaces;
+        sessionStorage.setItem("place",radioPlaces);
+        sessionStorage.setItem("location",inputLoc.value);
+        window.location.href='search-results.html';
      }
 };
 
@@ -120,41 +123,3 @@ inputLoc.oninput = function(){
         inputMessage.style.display = "none"; 
     }
 };
-
-
-
-window.onload = function() {
-    var urlSearch = "https://api.foursquare.com/v2/venues/search?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323&limit=50&ll=53.350140, -6.266155&query=" + radioPlaces + "&near=" + inputLoc.value;
-    var inputLoc = document.getElementById("places_loc");
-    var radioPlaces = document.querySelector('input[name="places"]:checked').value;
-
-    var getInput = prompt("Hey type something here: ");
-    localStorage.setItem("storageName",getInput);
-
-    
- }
-
-window.addEventListener("load", function() {
-//   console.log("All assets are loaded");
-//     var options = {
-//       enableHighAccuracy: true,
-//       timeout: 5000,
-//       maximumAge: 0
-//     };
-
-//     function success(pos) {
-//       var crd = pos.coords;
-
-//       console.log('Your current position is:');
-//       console.log(`Latitude : ${crd.latitude}`);
-//       console.log(`Longitude: ${crd.longitude}`);
-//       console.log(`More or less ${crd.accuracy} meters.`);
-//     }
-
-//     function error(err) {
-//       console.log("error")
-//         console.warn(`ERROR(${err.code}): ${err.message}`);
-//     }
-
-//     navigator.geolocation.getCurrentPosition(success, error, options);
-});
