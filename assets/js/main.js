@@ -90,7 +90,6 @@ function getPhotos(i,url) {
         var url = photos.prefix + photos.width + "x" + photos.height + photos.suffix;
         var getSinglePhoto = document.getElementById("photo_" + (i+1));
         getSinglePhoto.src = url;
-
     });
 }
 
