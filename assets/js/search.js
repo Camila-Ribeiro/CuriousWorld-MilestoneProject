@@ -29,8 +29,7 @@ window.addEventListener("load", function() {
                 collectAllIds.push(place.id);
             }
             document.getElementById("results_arr").insertAdjacentHTML("beforeend", html.join(""));
-            //callback(getURLVenuesId(collectAllIds));
-            //console.log(data);
+            callback(getURLVenuesId(collectAllIds));
         });
     }
     populateCards(function () {
@@ -58,8 +57,8 @@ function getURLVenuesId(id) {
     for (let index = 0; index < arrId.length; index++) {
         var elementID = arrId[index];
         var url = "https://api.foursquare.com/v2/venues/" + elementID + "/?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323";    
-        //getRatings(index,url);
-        // getPhotos(index,url);
+        // getRatings(index,url);
+        getPhotos(index,url);
     }
 }
 
@@ -75,16 +74,18 @@ function getRatings(i,url) {
 // GET ALL VENUE's PHOTOS
 function getPhotos(i,url) {
     getAllData(url, function(resp) {
+        var url;
         var photos = JSON.parse(resp).response.venue.photos; 
-        //  var photos = JSON.parse(resp).response.venue.bestPhoto; 
-         var url = photos[0].prefix + 350 + "x" + 250 + photos.suffix;
-         var getSinglePhoto = document.getElementById("photo_" + (i+1));
-         if (typeof photos === "undefined") {
-           var url = "../images/image-not-available.jpg";
-         } 
+        var getSinglePhoto = document.getElementById("photo_" + (i+1));
+        if (!photos.groups.length) {
+            url = "assets/images/image-not-available.jpg"; 
+        }else{
+            url = photos.groups[0].items[0].prefix + 350 + "x" + 250 + photos.groups[0].items[0].suffix;
+        } 
         getSinglePhoto.src = url;
     });
 }
+
 // GET VENUE ID AND OPEN DETAILS PAGE 
 function handleClick(id) {
     sessionStorage.setItem("place-id",id);
