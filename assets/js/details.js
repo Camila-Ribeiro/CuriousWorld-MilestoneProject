@@ -6,7 +6,7 @@ window.addEventListener("load", function() {
         getAllData(urlDetails, function(resp) {
             var data = JSON.parse(resp).response.venue;
             var cardTittle_Address =[];
-            var getHours = data.hours.timeframes
+            var getHours = data.hours;
             var url = data.url;
             var getPhotosItems = data.photos.groups;
             var getReviewsItems = data.listed.groups;
@@ -66,14 +66,18 @@ function getPhotos(items){
 }
 
 function getTimes(hours) {
-    var daysAndTimes =[];
-    for (let index = 0; index < hours.length; index++) {
-        var time = hours[index].open[0].renderedTime;
-        var days = hours[index].days
-        var splitDays = days.slice(" ", 7);
-        var formattedDays = splitDays + " "+ time + "<br/>";
-        daysAndTimes.push(formattedDays);
-        document.getElementById("opening_hours").innerHTML = daysAndTimes.join("")
+    if (typeof hours === "undefined") {
+        document.getElementById("opening_hours").innerHTML = "N/A";
+    }else{
+        var daysAndTimes =[];
+        for (let index = 0; index < hours.timeframes.length; index++) {
+            var time = hours.timeframes[index].open[0].renderedTime;
+            var days = hours.timeframes[index].days
+            var splitDays = days.slice(" ", 7);
+            var formattedDays = splitDays + " "+ time + "<br/>";
+            daysAndTimes.push(formattedDays);
+            document.getElementById("opening_hours").innerHTML = daysAndTimes.join("")
+        }
     }
 }
 
@@ -85,7 +89,7 @@ function getWebsite(url){
         if (url.length >= 7) {
             formattedURL = url.slice(7);
         }
-        var website = "<i class='fa fa-globe-americas'></i> <a href=' + url + '>" + formattedURL + "</a>";
+        var website = "<i class='fa fa-globe-americas'></i> <a href=' + url + '>website</a>";
         document.getElementById("website").innerHTML = website;
     }
 }
@@ -93,7 +97,7 @@ function getWebsite(url){
 function getReview(items){
     var allReviews =[];
     if (items === undefined || items.length == 0) {
-        allReviews.push('<p>No Reviews available</p>');
+        allReviews.push('<div class="card"><div class="card-body"><h5>No Reviews available</h5></div></div>');
         document.getElementById("reviews").innerHTML = allReviews.join("");
     } else {
         var allItems = items[0].items;
@@ -110,7 +114,10 @@ function getReview(items){
                 '</div>'+
                 '</div>');
                 document.getElementById("reviews").innerHTML = allReviews.join("");
-            }   
+            }else{
+                allReviews.push('<div class="card"><div class="card-body"><h5>No Reviews available</h5></div></div>');
+        document.getElementById("reviews").innerHTML = allReviews.join("");
+            }
         }
     }   
 }

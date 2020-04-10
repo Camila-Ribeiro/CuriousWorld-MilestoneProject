@@ -25,14 +25,14 @@ function populateInspiration(places, cb) {
     });
 }
 
-// CALLING API INTO INSPIRE ME SECTION
-// populateInspiration("hotels",function(){
-//     populateInspiration("restaurants",function(){
-//         populateInspiration("museums", function(){
-//             getURLVenuesId(collectAllVenuesId);
-//         })  
-//     })
-// });
+//CALLING API INTO INSPIRE ME SECTION
+populateInspiration("hotels",function(){
+    populateInspiration("restaurants",function(){
+        populateInspiration("museums", function(){
+            getURLVenuesId(collectAllVenuesId);
+        })  
+    })
+});
 
 //LOOP RANDOM ITEMS INTO INSPIRE ME SECTION
 function getRandomItems(list, data, places) {
