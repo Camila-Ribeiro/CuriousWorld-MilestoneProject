@@ -5,16 +5,22 @@ window.addEventListener("load", function() {
     function populateDetails() {
         getAllData(urlDetails, function(resp) {
             var data = JSON.parse(resp).response.venue;
-            var getPhotosItems = data.photos.groups;
-            var getHours = data.hours.timeframes
             var cardTittle_Address =[];
+            var getHours = data.hours.timeframes
+            var url = data.url;
+            var getPhotosItems = data.photos.groups;
+            
+            var getPhoneNum = data.contact.formattedPhone;
+            document.getElementById("phone_number").innerHTML = getPhoneNum
 
             cardTittle_Address.push('<h1 class="mt-1">'+ data.name +'<span class="details-rating"> '+ (typeof data.rating === "undefined" ? "<i class='fa fa-star'></i> N/A" :"<i class='fa fa-star'></i> " +data.rating+"")
                 +'</span></h1><p>'+ data.location.formattedAddress +'</p>');
             document.getElementById("card_details_header").innerHTML = cardTittle_Address.join("");
-
-            getPhotos(getPhotosItems);
+            
             getTimes(getHours);
+            getWebsite(url);
+            getPhotos(getPhotosItems);
+            console.log(data)
         });
     }  
 
@@ -67,4 +73,13 @@ function getTimes(hours) {
         daysAndTimes.push(formattedDays);
         document.getElementById("opening_hours").innerHTML = daysAndTimes.join("")
     }
+}
+
+function getWebsite(url){
+    var formattedURL = url.slice(6);
+    if (url.length >= 7) {
+        formattedURL = url.slice(7);
+    }
+    var website = "<i class='fa fa-globe-americas'></i> <a href=' + url + '>' + formattedURL + '</a>";
+    document.getElementById("website").innerHTML = website;
 }
