@@ -9,9 +9,11 @@ window.addEventListener("load", function() {
             var getHours = data.hours.timeframes
             var url = data.url;
             var getPhotosItems = data.photos.groups;
-            
-            var getPhoneNum = data.contact.formattedPhone;
-            document.getElementById("phone_number").innerHTML = getPhoneNum
+            var lat = data.location.lat;
+            var lng = data.location.lng;
+
+            var PhoneNumber = "<i class='fa fa-phone'></i> <a href='tel:"+data.contact.phone+" '>" + data.contact.formattedPhone + "</a>";
+            document.getElementById("phone_number").innerHTML = PhoneNumber;
 
             cardTittle_Address.push('<h1 class="mt-1">'+ data.name +'<span class="details-rating"> '+ (typeof data.rating === "undefined" ? "<i class='fa fa-star'></i> N/A" :"<i class='fa fa-star'></i> " +data.rating+"")
                 +'</span></h1><p>'+ data.location.formattedAddress +'</p>');
@@ -20,6 +22,7 @@ window.addEventListener("load", function() {
             getTimes(getHours);
             getWebsite(url);
             getPhotos(getPhotosItems);
+            getLocation(lat,lng);
             console.log(data)
         });
     }  
@@ -76,10 +79,19 @@ function getTimes(hours) {
 }
 
 function getWebsite(url){
-    var formattedURL = url.slice(6);
-    if (url.length >= 7) {
-        formattedURL = url.slice(7);
+    if (url === null || url === "" ) {
+        document.getElementById("website").innerHTML = "N/A";
+    } else {
+        var formattedURL = url.slice(6);
+        if (url.length >= 7) {
+            formattedURL = url.slice(7);
+        }
+        var website = "<i class='fa fa-globe-americas'></i> <a href=' + url + '>" + formattedURL + "</a>";
+        document.getElementById("website").innerHTML = website;
     }
-    var website = "<i class='fa fa-globe-americas'></i> <a href=' + url + '>' + formattedURL + '</a>";
-    document.getElementById("website").innerHTML = website;
+}
+
+function getLocation(lat,lng){
+    console.log(lat,lng)
+    document.getElementById("google_maps").src = "https://maps.google.com/maps/embed/v1/place?key=AIzaSyAOySuSdP6NVXz7LglBAl1sp1CHXrZeFqQ&q="+lat+","+lng+""
 }
