@@ -9,6 +9,7 @@ window.addEventListener("load", function() {
             var getHours = data.hours.timeframes
             var url = data.url;
             var getPhotosItems = data.photos.groups;
+            var getReviewsItems = data.listed.groups;
             var lat = data.location.lat;
             var lng = data.location.lng;
 
@@ -22,11 +23,11 @@ window.addEventListener("load", function() {
             getTimes(getHours);
             getWebsite(url);
             getPhotos(getPhotosItems);
+            getReview(getReviewsItems);
             getLocation(lat,lng);
             console.log(data)
         });
     }  
-
     populateDetails();
 });
 
@@ -45,7 +46,6 @@ function getAllData(url, callback) {
 }
 
 function getPhotos(items){
-    // items = data.photos.groups
     var photoSlides =[];
 
     if (items === undefined || items.length == 0) {
@@ -54,7 +54,6 @@ function getPhotos(items){
     } else {
         var allItems = items[0].items;
         for (let i = 0; i < allItems.length; i++) { 
-            // var photo = items[i];
             if (allItems.length > 1 ) {
                 photoSlides.push((allItems[0] ? '<div class="carousel-item '+(i === 0 ? "active" : "")+'"><img src=" '+ allItems[i].prefix + 200 + "x" + 100 + allItems[i].suffix +' " class="d-block w-100" alt="..."></div>' :'<div class="carousel-item"><img src=" '+ allItems[i].prefix + 200 + "x" + 100 + allItems[i].suffix +' " class="d-block w-100" alt="..."></div>'));
                 document.getElementById("carousel_details").innerHTML = photoSlides.join("");
@@ -91,7 +90,31 @@ function getWebsite(url){
     }
 }
 
+function getReview(items){
+    var allReviews =[];
+    if (items === undefined || items.length == 0) {
+        allReviews.push('<p>No Reviews available</p>');
+        document.getElementById("reviews").innerHTML = allReviews.join("");
+    } else {
+        var allItems = items[0].items;
+        for (let i = 0; i < allItems.length; i++) { 
+            var review = allItems[i];
+            console.log(review.user.photo.prefix+review.user.photo.suffix)
+
+            if (review.description !== "" || review.length < 2) {
+                allReviews.push('<div class="card">'+
+                '<img src="'+review.user.photo.prefix + "original" + review.user.photo.suffix+'" class="w-25 mt-1 rounded-circle mx-auto card-img-top" alt="..." />'+
+                '<div class="card-body">'+
+                '<h5 class="card-title">'+review.user.firstName+'</h5>'+
+                '<p class="card-text">'+review.description+'</p>'+
+                '</div>'+
+                '</div>');
+                document.getElementById("reviews").innerHTML = allReviews.join("");
+            }   
+        }
+    }   
+}
+
 function getLocation(lat,lng){
-    console.log(lat,lng)
     document.getElementById("google_maps").src = "https://maps.google.com/maps/embed/v1/place?key=AIzaSyAOySuSdP6NVXz7LglBAl1sp1CHXrZeFqQ&q="+lat+","+lng+""
 }
