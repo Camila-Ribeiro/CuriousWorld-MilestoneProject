@@ -82,7 +82,7 @@ function getTimes(hours) {
 }
 
 function getWebsite(url){
-    if (url === null || url === "" ) {
+    if (url === null || typeof url === "undefined" ) {
         document.getElementById("website").innerHTML = "N/A";
     } else {
         var formattedURL = url.slice(6);
@@ -96,16 +96,15 @@ function getWebsite(url){
 
 function getReview(items){
     var allReviews =[];
-    if (items === undefined || items.length == 0) {
+    if (items[0].items.length === 0) {
         allReviews.push('<div class="card"><div class="card-body"><h5>No Reviews available</h5></div></div>');
         document.getElementById("reviews").innerHTML = allReviews.join("");
     } else {
         var allItems = items[0].items;
         for (let i = 0; i < allItems.length; i++) { 
             var review = allItems[i];
-            console.log(review.user.photo.prefix+review.user.photo.suffix)
-
-            if (review.description !== "" || review.length < 2) {
+console.log(i)
+            if (review.description !== "" && i < 3) {
                 allReviews.push('<div class="card">'+
                 '<img src="'+review.user.photo.prefix + "original" + review.user.photo.suffix+'" class="w-25 mt-1 rounded-circle mx-auto card-img-top" alt="..." />'+
                 '<div class="card-body">'+
@@ -114,9 +113,6 @@ function getReview(items){
                 '</div>'+
                 '</div>');
                 document.getElementById("reviews").innerHTML = allReviews.join("");
-            }else{
-                allReviews.push('<div class="card"><div class="card-body"><h5>No Reviews available</h5></div></div>');
-        document.getElementById("reviews").innerHTML = allReviews.join("");
             }
         }
     }   
