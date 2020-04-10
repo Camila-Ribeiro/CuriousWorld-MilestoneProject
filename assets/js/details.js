@@ -34,7 +34,7 @@ function getAllData(url, callback) {
 }
 
 function cardSlides(photos_details){
-    // photo = data.photos.groups
+    // getPhoto = data.photos.groups
     var photoSlides =[];
 
     if (photos_details === undefined || photos_details.length == 0) {
