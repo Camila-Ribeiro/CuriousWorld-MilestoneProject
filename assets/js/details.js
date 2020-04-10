@@ -5,14 +5,16 @@ window.addEventListener("load", function() {
     function populateDetails() {
         getAllData(urlDetails, function(resp) {
             var data = JSON.parse(resp).response.venue;
-            var getPhoto = data.photos.groups;
+            var getPhotosItems = data.photos.groups;
+            var getHours = data.hours.timeframes
             var cardTittle_Address =[];
 
             cardTittle_Address.push('<h1 class="mt-1">'+ data.name +'<span class="details-rating"> '+ (typeof data.rating === "undefined" ? "<i class='fa fa-star'></i> N/A" :"<i class='fa fa-star'></i> " +data.rating+"")
                 +'</span></h1><p>'+ data.location.formattedAddress +'</p>');
             document.getElementById("card_details_header").innerHTML = cardTittle_Address.join("");
 
-            cardSlides(getPhoto);
+            getPhotos(getPhotosItems);
+            getTimes(getHours);
         });
     }  
 
@@ -33,15 +35,15 @@ function getAllData(url, callback) {
     xhr.send();
 }
 
-function cardSlides(photos_details){
-    // getPhoto = data.photos.groups
+function getPhotos(items){
+    // items = data.photos.groups
     var photoSlides =[];
 
-    if (photos_details === undefined || photos_details.length == 0) {
+    if (items === undefined || items.length == 0) {
         photoSlides.push('<img src="assets/images/image-not-available.jpg" class="img-media img-fluid" alt="image-not-available">');
         document.getElementById("single_photo").innerHTML = photoSlides.join("");
     } else {
-        var allItems = photos_details[0].items;
+        var allItems = items[0].items;
         for (let i = 0; i < allItems.length; i++) { 
             // var photo = items[i];
             if (allItems.length > 1 ) {
@@ -53,4 +55,16 @@ function cardSlides(photos_details){
             } 
         }
     }   
+}
+
+function getTimes(hours) {
+    var daysAndTimes =[];
+    for (let index = 0; index < hours.length; index++) {
+        var time = hours[index].open[0].renderedTime;
+        var days = hours[index].days
+        var splitDays = days.slice(" ", 7);
+        var formattedDays = splitDays + " "+ time + "<br/>";
+        daysAndTimes.push(formattedDays);
+        document.getElementById("opening_hours").innerHTML = daysAndTimes.join("")
+    }
 }
