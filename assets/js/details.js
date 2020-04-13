@@ -8,13 +8,13 @@ window.addEventListener("load", function() {
             var cardTittle_Address =[];
             var getHours = data.hours;
             var url = data.url;
+            var number = data.contact;
             var getPhotosItems = data.photos.groups;
             var getReviewsItems = data.listed.groups;
             var lat = data.location.lat;
             var lng = data.location.lng;
 
-            var PhoneNumber = "<i class='fa fa-phone'></i> <a href='tel:"+data.contact.phone+" '>" + data.contact.formattedPhone + "</a>";
-            document.getElementById("phone_number").innerHTML = PhoneNumber;
+            
 
             cardTittle_Address.push('<h1 class="mt-1">'+ data.name +'<span class="details-rating"> '+ (typeof data.rating === "undefined" ? "<i class='fa fa-star'></i> N/A" :"<i class='fa fa-star'></i> " +data.rating+"")
                 +'</span></h1><p>'+ data.location.formattedAddress +'</p>');
@@ -22,6 +22,7 @@ window.addEventListener("load", function() {
             
             getTimes(getHours);
             getWebsite(url);
+            getPhoneNumber(number);
             getPhotos(getPhotosItems);
             getReview(getReviewsItems);
             getLocation(lat,lng);
@@ -94,6 +95,15 @@ function getWebsite(url){
     }
 }
 
+function getPhoneNumber(number){
+    if (typeof number.phone === "undefined") {
+        document.getElementById("opening_hours").innerHTML = "N/A";
+    }else{
+        var PhoneNumber = "<i class='fa fa-phone'></i> <a href='tel:"+number.phone+" '>" + number.formattedPhone + "</a>";
+        document.getElementById("phone_number").innerHTML = PhoneNumber;
+    }
+}
+
 function getReview(items){
     var allReviews =[];
     if (items[0].items.length === 0) {
@@ -103,7 +113,7 @@ function getReview(items){
         var allItems = items[0].items;
         for (let i = 0; i < allItems.length; i++) { 
             var review = allItems[i];
-console.log(i)
+
             if (review.description !== "" && i < 3) {
                 allReviews.push('<div class="card">'+
                 '<img src="'+review.user.photo.prefix + "original" + review.user.photo.suffix+'" class="w-25 mt-1 rounded-circle mx-auto card-img-top" alt="..." />'+
