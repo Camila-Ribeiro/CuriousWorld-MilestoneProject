@@ -52,14 +52,23 @@ function getTitleInspiration(obj,i,places) {
     if(places === "hotels") {
         var hotelName = document.getElementById("hotels_insp_" + (i+1));
         hotelName.innerHTML = obj.venue.name;
+        hotelName.onclick = function(){
+            handleClickDetails(obj.venue.id)
+        }
     }
     else if(places === "restaurants") {
         var restName = document.getElementById("rest_insp_" + (i+1));
         restName.innerHTML = obj.venue.name;
+        restName.onclick = function(){
+            handleClickDetails(obj.venue.id)
+        }
     }
     else if(places === "museums") {
         var museumName = document.getElementById("museum_insp_" + (i+1));
         museumName.innerHTML = obj.venue.name;
+        museumName.onclick = function(){
+            handleClickDetails(obj.venue.id)
+        }
     }
 }
 
@@ -70,7 +79,7 @@ function getURLVenuesId(id) {
         var elementID = arrId[index];
         var url = "https://api.foursquare.com/v2/venues/" + elementID + "/?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323";    
         getRatings(index,url);
-        getPhotos(index,url);
+        getPhotos(index,url,elementID);
     }
 }
 
@@ -84,12 +93,15 @@ function getRatings(i,url) {
 }
 
 // GET ALL VENUE's PHOTOS
-function getPhotos(i,url) {
+function getPhotos(i,url,id) {
     getAllData(url, function(resp) {
         var photos = JSON.parse(resp).response.venue.photos.groups[0].items[0]; 
         var url = photos.prefix + photos.width + "x" + photos.height + photos.suffix;
         var getSinglePhoto = document.getElementById("photo_" + (i+1));
         getSinglePhoto.src = url;
+        getSinglePhoto.onclick = function(){
+            handleClickDetails(id);
+        }
     });
 }
 
@@ -122,3 +134,8 @@ inputLoc.oninput = function(){
         inputMessage.style.display = "none"; 
     }
 };
+
+function handleClickDetails(id){
+    sessionStorage.setItem("place-id",id);
+    window.location.href='detail-page.html';
+}
