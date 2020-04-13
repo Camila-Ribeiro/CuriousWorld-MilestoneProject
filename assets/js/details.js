@@ -124,6 +124,10 @@ function getReview(items){
                 '</div>');
                 document.getElementById("reviews").innerHTML = allReviews.join("");
             }
+            else if(review.description == "" && i==0){
+                allReviews.push('<div class="card"><div class="card-body"><h5>No Reviews available</h5></div></div>');
+                document.getElementById("reviews").innerHTML = allReviews.join("");
+            }
         }
     }   
 }
