@@ -9,7 +9,7 @@ window.addEventListener("load", function() {
 
     function populateCards(callback) {
         getAllData(urlSearch, function(resp) {
-            data = JSON.parse(resp).response.venues;
+            var data = JSON.parse(resp).response.venues;
             if (data == "" || data  == null) {
                 var noResults= document.getElementById("no_results");
                 var resultsFound= document.getElementById("results_found");
@@ -17,7 +17,7 @@ window.addEventListener("load", function() {
                 resultsFound.classList.add("d-none");
             }
             var html =[];
-            for (let index = 0; index < data.length; index++) {
+            for (var index = 0; index < data.length; index++) {
                 var place = data[index];
                 html.push('<div class="row"><div class="col"><div class="media mb-3 media-container"><img id="photo_'+ (index + 1) +'" src="" class="img-media img-fluid" alt="...">' + 
                    '<div class="media-body"><div class="media-wrapper"><h2 class="mt-0">'+ place.name +'</h2><p>'+ (typeof place.location.address === "undefined" ? "" :place.location.address + ', ') + (typeof place.location.city === "undefined" ? "" :place.location.city + '<br/> ')  + (typeof place.location.country === "undefined" ? 
@@ -44,7 +44,7 @@ function getAllData(url, callback) {
         if (this.readyState === 4 && this.status === 200) {
             callback(this.responseText);
         }
-    }
+    };
     xhr.onerror = function() {
         alert("Woops, there was an error making the request.");
     };
@@ -54,7 +54,7 @@ function getAllData(url, callback) {
 // GET ALL VENUES's URL
 function getURLVenuesId(id) {  
     var arrId = id;
-    for (let index = 0; index < arrId.length; index++) {
+    for (var index = 0; index < arrId.length; index++) {
         var elementID = arrId[index];
         var url = "https://api.foursquare.com/v2/venues/" + elementID + "/?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323";    
         getRatings(index,url);
@@ -87,7 +87,7 @@ function getPhotos(i,url) {
 }
 // GET VENUE ID AND OPEN DETAILS PAGE 
 function handleClick(id) {
-    sessionStorage.setItem("place-id",id);
+  	sessionStorage.setItem("place-id",id);
     window.location.href='detail-page.html';
 }
 
