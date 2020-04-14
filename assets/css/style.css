@@ -15,6 +15,12 @@ footer h6 {
   color: #ffffff;
 }
 /* ------------------------- Index  */
+section.inspiration h3,section.inspiration img{
+  cursor: pointer;
+}
+section.inspiration h3:hover{
+  text-decoration:underline ;
+}
 .inspiration {
   margin-top: 70px;
   margin-bottom: 100px;
