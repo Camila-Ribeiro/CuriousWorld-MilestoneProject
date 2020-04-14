@@ -17,7 +17,7 @@ window.addEventListener("load", function() {
             
 
             cardTittle_Address.push('<h1 class="mt-1">'+ data.name +'<span class="details-rating"> '+ (typeof data.rating === "undefined" ? "<i class='fa fa-star'></i> N/A" :"<i class='fa fa-star'></i> " +data.rating+"")
-                +'</span></h1><p>'+ data.location.formattedAddress +'</p>');
+               +'</span></h1><p>'+ data.location.formattedAddress +'</p>');
             document.getElementById("card_details_header").innerHTML = cardTittle_Address.join("");
             
             getTimes(getHours);
@@ -26,7 +26,7 @@ window.addEventListener("load", function() {
             getPhotos(getPhotosItems);
             getReview(getReviewsItems);
             getLocation(lat,lng);
-            console.log(data)
+            console.log(data);
         });
     }  
     populateDetails();
@@ -39,7 +39,7 @@ function getAllData(url, callback) {
         if (this.readyState === 4 && this.status === 200) {
             callback(this.responseText);
         }
-    }
+    };
     xhr.onerror = function() {
         alert("Woops, there was an error making the request.");
     };
@@ -54,7 +54,7 @@ function getPhotos(items){
         document.getElementById("single_photo").innerHTML = photoSlides.join("");
     } else {
         var allItems = items[0].items;
-        for (let i = 0; i < allItems.length; i++) { 
+        for (var i = 0; i < allItems.length; i++) { 
             if (allItems.length > 1 ) {
                 photoSlides.push((allItems[0] ? '<div class="carousel-item '+(i === 0 ? "active" : "")+'"><img src=" '+ allItems[i].prefix + 200 + "x" + 100 + allItems[i].suffix +' " class="d-block w-100" alt="..."></div>' :'<div class="carousel-item"><img src=" '+ allItems[i].prefix + 200 + "x" + 100 + allItems[i].suffix +' " class="d-block w-100" alt="..."></div>'));
                 document.getElementById("carousel_details").innerHTML = photoSlides.join("");
@@ -71,13 +71,13 @@ function getTimes(hours) {
         document.getElementById("opening_hours").innerHTML = "N/A";
     }else{
         var daysAndTimes =[];
-        for (let index = 0; index < hours.timeframes.length; index++) {
+        for (var index = 0; index < hours.timeframes.length; index++) {
             var time = hours.timeframes[index].open[0].renderedTime;
-            var days = hours.timeframes[index].days
+            var days = hours.timeframes[index].days;
             var splitDays = days.slice(" ", 7);
             var formattedDays = splitDays + " "+ time + "<br/>";
             daysAndTimes.push(formattedDays);
-            document.getElementById("opening_hours").innerHTML = daysAndTimes.join("")
+            document.getElementById("opening_hours").innerHTML = daysAndTimes.join("");
         }
     }
 }
@@ -111,7 +111,7 @@ function getReview(items){
         document.getElementById("reviews").innerHTML = allReviews.join("");
     } else {
         var allItems = items[0].items;
-        for (let i = 0; i < allItems.length; i++) { 
+        for (var i = 0; i < allItems.length; i++) { 
             var review = allItems[i];
 
             if (review.description !== "" && i < 3) {
@@ -133,5 +133,5 @@ function getReview(items){
 }
 
 function getLocation(lat,lng){
-    document.getElementById("google_maps").src = "https://maps.google.com/maps/embed/v1/place?key=AIzaSyAOySuSdP6NVXz7LglBAl1sp1CHXrZeFqQ&q="+lat+","+lng+""
+    document.getElementById("google_maps").src = "https://maps.google.com/maps/embed/v1/place?key=AIzaSyAOySuSdP6NVXz7LglBAl1sp1CHXrZeFqQ&q="+lat+","+lng+"";
 }
