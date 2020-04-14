@@ -10,7 +10,7 @@ function getAllData(url, callback) {
         if (this.readyState === 4 && this.status === 200) {
             callback(this.responseText);
         }
-    }
+    };
     xhr.onerror = function() {
         alert("Woops, there was an error making the request.");
     };
@@ -19,9 +19,9 @@ function getAllData(url, callback) {
 
 function populateInspiration(places, cb) {
     getAllData(url + places, function(resp) {
-        data = JSON.parse(resp).response.groups[0].items;
+        var data = JSON.parse(resp).response.groups[0].items;
         var list = Object.keys(data);
-        cb(getRandomItems(list, data, places))
+        cb(getRandomItems(list, data, places));
     });
 }
 
@@ -30,14 +30,14 @@ populateInspiration("hotels",function(){
     populateInspiration("restaurants",function(){
         populateInspiration("museums", function(){
             // getURLVenuesId(collectAllVenuesId);
-        })  
-    })
+        });
+    });
 });
 
 //LOOP RANDOM ITEMS INTO INSPIRE ME SECTION
 function getRandomItems(list, data, places) {
     
-    for (let index = 0; index < list.length; index++) {   
+    for (var index = 0; index < list.length; index++) {   
         if (list.length >= 3 && index < 3) {
             var randomIndex = Math.floor(Math.random() * list.length);
             var randomObject = data[list[randomIndex]];
@@ -50,34 +50,33 @@ function getRandomItems(list, data, places) {
 
 //GET VENUES's TITLE INTO INSPIRE ME SECTION
 function getTitleInspiration(obj,i,places) {
-    console.log(obj)
     if(places === "hotels") {
         var hotelName = document.getElementById("hotels_insp_" + (i+1));
         hotelName.innerHTML = obj.venue.name;
         hotelName.onclick = function(){
-            handleClickDetails(obj.venue.id)
-        }
+            handleClickDetails(obj.venue.id);
+        };
     }
     else if(places === "restaurants") {
         var restName = document.getElementById("rest_insp_" + (i+1));
         restName.innerHTML = obj.venue.name;
         restName.onclick = function(){
-            handleClickDetails(obj.venue.id)
-        }
+            handleClickDetails(obj.venue.id);
+        };
     }
     else if(places === "museums") {
         var museumName = document.getElementById("museum_insp_" + (i+1));
         museumName.innerHTML = obj.venue.name;
         museumName.onclick = function(){
-            handleClickDetails(obj.venue.id)
-        }
+            handleClickDetails(obj.venue.id);
+        };
     }
 }
 
 // GET ALL VENUES's URL
 function getURLVenuesId(id) {  
     var arrId = id;
-    for (let index = 0; index < arrId.length; index++) {
+    for (var index = 0; index < arrId.length; index++) {
         var elementID = arrId[index];
         var url = "https://api.foursquare.com/v2/venues/" + elementID + "/?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323";    
         getRatings(index,url);
@@ -103,7 +102,7 @@ function getPhotos(i,url,id) {
         getSinglePhoto.src = url;
         getSinglePhoto.onclick = function(){
             handleClickDetails(id);
-        }
+        };
     });
 }
 
