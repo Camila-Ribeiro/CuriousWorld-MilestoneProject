@@ -29,13 +29,14 @@ function populateInspiration(places, cb) {
 populateInspiration("hotels",function(){
     populateInspiration("restaurants",function(){
         populateInspiration("museums", function(){
-            getURLVenuesId(collectAllVenuesId);
+            // getURLVenuesId(collectAllVenuesId);
         })  
     })
 });
 
 //LOOP RANDOM ITEMS INTO INSPIRE ME SECTION
 function getRandomItems(list, data, places) {
+    
     for (let index = 0; index < list.length; index++) {   
         if (list.length >= 3 && index < 3) {
             var randomIndex = Math.floor(Math.random() * list.length);
@@ -49,6 +50,7 @@ function getRandomItems(list, data, places) {
 
 //GET VENUES's TITLE INTO INSPIRE ME SECTION
 function getTitleInspiration(obj,i,places) {
+    console.log(obj)
     if(places === "hotels") {
         var hotelName = document.getElementById("hotels_insp_" + (i+1));
         hotelName.innerHTML = obj.venue.name;
