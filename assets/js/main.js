@@ -114,11 +114,10 @@ var inputMessage = document.getElementById("places_loc_error");
 btnSearch.onclick = function(){
     sessionStorage.clear();
     var radioPlaces = document.querySelector('input[name="places"]:checked').value;
-    
+
     if (inputLoc.value == "" ||  inputLoc.value == null) {
-            inputLoc.classList.add("border-danger");
-            inputMessage.style.display = "block"; 
-        
+        inputLoc.classList.add("border-danger");
+        inputMessage.style.display = "block"; 
      }else{
         sessionStorage.setItem("place",radioPlaces);
         sessionStorage.setItem("location",inputLoc.value);

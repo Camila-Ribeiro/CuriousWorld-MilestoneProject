@@ -97,7 +97,7 @@ function getWebsite(url){
 
 function getPhoneNumber(number){
     if (typeof number.phone === "undefined") {
-        document.getElementById("opening_hours").innerHTML = "N/A";
+        document.getElementById("phone_number").innerHTML = "N/A";
     }else{
         var PhoneNumber = "<i class='fa fa-phone'></i> <a href='tel:"+number.phone+" '>" + number.formattedPhone + "</a>";
         document.getElementById("phone_number").innerHTML = PhoneNumber;
