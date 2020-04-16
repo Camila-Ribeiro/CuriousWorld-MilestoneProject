@@ -50,7 +50,7 @@ function getPhotos(items){
     var photoSlides =[];
 
     if (items === undefined || items.length == 0) {
-        photoSlides.push('<img src="assets/images/image-not-available.jpg" class="img-media img-fluid" alt="image-not-available">');
+        photoSlides.push('<img src="assets/images/image-not-available-small.jpg" class="img-media img-fluid mb-3" alt="image-not-available">');
         document.getElementById("single_photo").innerHTML = photoSlides.join("");
     } else {
         var allItems = items[0].items;

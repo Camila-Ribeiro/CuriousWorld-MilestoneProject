@@ -28,7 +28,7 @@ window.addEventListener("load", function() {
                 collectAllIds.push(place.id);
             }
             document.getElementById("results_arr").insertAdjacentHTML("beforeend", html.join(""));
-            //callback(getURLVenuesId(collectAllIds));
+            callback(getURLVenuesId(collectAllIds));
         });
     }
     populateCards(function () {

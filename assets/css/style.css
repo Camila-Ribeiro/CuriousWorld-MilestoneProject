@@ -15,7 +15,15 @@ footer h6 {
   color: #ffffff;
 }
 /* ------------------------- Index  */
-section.inspiration h3,section.inspiration img{
+section.inspiration h3{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  /* max-width: 280px; */
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+section.inspiration img{
   cursor: pointer;
 }
 section.inspiration h3:hover{
