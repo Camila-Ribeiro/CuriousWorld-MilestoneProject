@@ -39,7 +39,6 @@ describe("My btnSearch.onclick function", () => {
             }else{
                 sessionStorage.setItem("place",radioPlaces);
                 sessionStorage.setItem("location",inputLoc.value);
-                // window.location.href='search-results.html';
              }
         });
 
@@ -100,24 +99,23 @@ describe("My btnSearch.onclick function", () => {
                     <input class="form-check-input" type="radio" name="places" id="inlineMuseums" value="museums">
                 `)
             })
-        it('Should add keys/values to the session storage', () => {
-            let spyEvent = spyOnEvent('#button_search', 'click');
-            let inputLocValue = document.getElementById("places_loc").value;
-            let radioPlaces = document.querySelector('input[name="places"]:checked').value;
-            $('#button_search').click();
-            expect('click').toHaveBeenTriggeredOn('#button_search');
-            expect(spyEvent).toHaveBeenTriggered();
+            it('Should add keys/values to the session storage', () => {
+                let spyEvent = spyOnEvent('#button_search', 'click');
+                let inputLocValue = document.getElementById("places_loc").value;
+                let radioPlaces = document.querySelector('input[name="places"]:checked').value;
+                $('#button_search').click();
+                expect('click').toHaveBeenTriggeredOn('#button_search');
+                expect(spyEvent).toHaveBeenTriggered();
             
-            spyOn(window.sessionStorage, 'setItem').and.callFake(function () {
-                Object.defineProperty(sessionStorage, "location", { value: inputLocValue,configurable:true,enumerable:true,writable:true });
-                Object.defineProperty(sessionStorage, "places", { value: radioPlaces,configurable:true,enumerable:true,writable:true });
-                window.sessionStorage.setItem(inputLocValue, radioPlaces);
-                expect(window.sessionStorage.setItem).toHaveBeenCalledWith(inputLocValue, radioPlaces);
-            })
+                spyOn(window.sessionStorage, 'setItem').and.callFake(function () {
+                    Object.defineProperty(sessionStorage, "location", { value: inputLocValue,configurable:true,enumerable:true,writable:true });
+                    Object.defineProperty(sessionStorage, "places", { value: radioPlaces,configurable:true,enumerable:true,writable:true });
+                    window.sessionStorage.setItem(inputLocValue, radioPlaces);
+                    expect(window.sessionStorage.setItem).toHaveBeenCalledWith(inputLocValue, radioPlaces);
+                })
 
+            });
         });
-    });
-        
     });
 
     describe("Get the values of radio buttons and checked by default", () => {
@@ -139,54 +137,52 @@ describe("My btnSearch.onclick function", () => {
             expect(radioPlaces).toBeTruthy();
         });
     });
-
-
-    // it("", () => { {
-    //     let spyEvent = spyOnEvent('#button_search', 'click');
-    //     let inputLocValue = document.getElementById("places_loc").value;
-    //     let inputLoc = document.getElementById("places_loc");
-       
-    //     $('#button_search').click();
-    //     expect('click').toHaveBeenTriggeredOn('#button_search');
-    //     expect(inputLoc).toHaveValue(inputLocValue);
-    //     expect(spyEvent).toHaveBeenTriggered();
-    // });
     
-    // describe("My inputLoc.oninput function", () => { {
-    //     beforeEach(() => {
-        
-    // });
-    //  it("should exist", () => {
-    //         expect($("inputLoc")).toBeDefined();
-    //     });
-    // it("should pass if value matches expectation", function () {
-    //     expect($('#sandbox')).toHaveValue(value);
-    //     expect($('#sandbox').get(0)).toHaveValue(value);
-    //   });
-    //     it("should add class when value is undefined or null", () => { {
-    //         let input = document.querySelector('input[name="places"]'); 
-    //         expect(input).toHaveClass("border-danger");
-    //         // expect($('#popup')).toHaveCss({"border-danger"});
-    //     });
-    // it("should add class when value is empty", () => { {
-    //     let inputLoc = document.getElementById("places_loc").value !== "";
-    //     expect(inputLoc).not.toHaveClass("border-danger"); 
-    // });
-    // it("should add display style when value is empty", () => { {
-    //     let inputMessage = document.getElementById("places_loc_error");
-    //     expect(inputMessage).not.toHaveCss("block"); 
-    // });
-    // it("should add class when value is null", () => { {
-    //     let inputLoc = document.getElementById("places_loc").value !== null;
-    //     expect(inputLoc).not.toHaveClass("border-danger"); 
-    // });
-    // it("should add display style when value is null", () => { {
-    //     let inputMessage = document.getElementById("places_loc_error");
-    //     expect(inputMessage).not.toHaveCss("block"); 
-    // });
-    // });
+    describe("My inputLoc.oninput function", () => { 
+        beforeEach(() => {
+            setFixtures(`<input id="places_loc" value="London" type="text" class="form-control " placeholder="Please type city's name (i.e Dublin)" aria-label="city" aria-describedby="button-addon2">
+            <div id="places_loc_error" class="invalid-feedback">Please enter a valid city</div>`)
+            let inputLoc = document.getElementById("places_loc");
+            let inputMessage = document.getElementById("places_loc_error");
+            inputLoc.oninput = function(){
+                if (inputLoc.value == "" ||  inputLoc.value == null) {
+                    inputLoc.classList.add("border-danger");
+                    inputMessage.style.display = "block"; 
+                }else{
+                    inputLoc.classList.remove("border-danger");
+                    inputMessage.style.display = "none"; 
+                }   
+            }
+        });
+        it("should exist", () => {
+            expect(inputLoc).toBeDefined();
+        });
+        it("Should validate when value of input(inputLoc) is deleted by user", () => {
+            let inputLocValue = document.getElementById("places_loc");
+            inputLocValue.removeAttribute("value");
+            let inputLoc = document.getElementById("places_loc");
+            let inputMessage = document.getElementById("places_loc_error");
 
+            let spyEvent = spyOnEvent(inputLoc, 'input');
+            $('#places_loc').val($('#places_loc').val()).trigger("input");
+            expect(spyEvent).toHaveBeenTriggered();
+    
+            expect(inputLocValue).not.toHaveValue();
+            expect(inputLoc).toHaveClass("border-danger");
+            expect(inputMessage).toHaveCss({display:"block"});
+        });
+        it("Should validate when value of input(inputLoc) is filled", () => {
+            let inputLocValue = document.getElementById("places_loc").value;
+            let inputLoc = document.getElementById("places_loc");
+            let inputMessage = document.getElementById("places_loc_error");
 
-
-
-}); //CLOSE FIRST DESCRIBE
+            let spyEvent = spyOnEvent(inputLoc, 'input');
+            $('#places_loc').val($('#places_loc').val()).trigger("input");
+            expect(spyEvent).toHaveBeenTriggered();
+    
+            expect(inputLocValue).toHaveValue();
+            expect(inputLoc).not.toHaveClass("border-danger");
+            expect(inputMessage).toHaveCss({display:"none"});
+        });
+    });
+}); //CLOSE FIRST
