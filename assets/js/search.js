@@ -1,4 +1,3 @@
-
 window.addEventListener("load", function() {
     var location = sessionStorage.getItem("location");
     var place = sessionStorage.getItem("place");
@@ -90,4 +89,3 @@ function handleClick(id) {
   	sessionStorage.setItem("place-id",id);
     window.location.href='detail-page.html';
 }
-

@@ -97,8 +97,8 @@ describe("My btnSearch.onclick function", () => {
                     <input class="form-check-input" type="radio" name="places" id="inlineHotels" value="hotels" checked>
                     <input class="form-check-input" type="radio" name="places" id="inlineRestautants" value="restaurants">
                     <input class="form-check-input" type="radio" name="places" id="inlineMuseums" value="museums">
-                `)
-            })
+                `);
+            });
             it('Should add keys/values to the session storage', () => {
                 let spyEvent = spyOnEvent('#button_search', 'click');
                 let inputLocValue = document.getElementById("places_loc").value;
@@ -112,7 +112,7 @@ describe("My btnSearch.onclick function", () => {
                     Object.defineProperty(sessionStorage, "places", { value: radioPlaces,configurable:true,enumerable:true,writable:true });
                     window.sessionStorage.setItem(inputLocValue, radioPlaces);
                     expect(window.sessionStorage.setItem).toHaveBeenCalledWith(inputLocValue, radioPlaces);
-                })
+                });
 
             });
         });
@@ -141,7 +141,7 @@ describe("My btnSearch.onclick function", () => {
     describe("My inputLoc.oninput function", () => { 
         beforeEach(() => {
             setFixtures(`<input id="places_loc" value="London" type="text" class="form-control " placeholder="Please type city's name (i.e Dublin)" aria-label="city" aria-describedby="button-addon2">
-            <div id="places_loc_error" class="invalid-feedback">Please enter a valid city</div>`)
+            <div id="places_loc_error" class="invalid-feedback">Please enter a valid city</div>`);
             let inputLoc = document.getElementById("places_loc");
             let inputMessage = document.getElementById("places_loc_error");
             inputLoc.oninput = function(){
@@ -152,7 +152,7 @@ describe("My btnSearch.onclick function", () => {
                     inputLoc.classList.remove("border-danger");
                     inputMessage.style.display = "none"; 
                 }   
-            }
+            };
         });
         it("should exist", () => {
             expect(inputLoc).toBeDefined();
