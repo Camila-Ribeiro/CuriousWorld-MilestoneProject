@@ -18,7 +18,7 @@ footer h6 {
 section.inspiration h3{
   text-overflow: ellipsis;
   overflow: hidden;
-  /* max-width: 280px; */
+  max-width: 280px;
   white-space: nowrap;
   cursor: pointer;
 }
@@ -29,6 +29,43 @@ section.inspiration img{
 section.inspiration h3:hover{
   text-decoration:underline ;
 }
+
+.loading {
+  position: absolute;
+  background-color:#000;
+  background-image: url("../assets/images/loading.gif");
+  margin: 0 auto;
+  display: block;
+}
+#spinner-front, #spinner-back {
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  width: 100%;
+  transition: all 0.25s ease;
+}
+#spinner-front {
+  z-index: 999;
+  margin-top: 45vh;
+  color: #fff;
+  text-align: center;
+}
+#spinner-back {
+  z-index: 998;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.87);
+}
+#spinner-front.show {
+  visibility: visible;
+  opacity: 1;
+}
+#spinner-back.show {
+  visibility: visible;
+  opacity: 1;
+}
+
 .inspiration {
   margin-top: 70px;
   margin-bottom: 100px;
@@ -45,7 +82,14 @@ section.inspiration h3:hover{
   padding-top: 140px;
 }
 .img-insp {
-  height: 170px;
+  margin: 0 auto;
+  display: block;
+  max-width: 100px;
+}
+.cover-image{
+  object-fit: cover;
+  width: 300px;
+  height: 180px;
 }
 section.container-hero .jumbotron {
   background-color: rgba(218, 224, 229, 0.86);
@@ -183,6 +227,9 @@ img {
   }
   .hero-img {
     height: 300px;
+  }
+  .mobile-title {
+    font-size: 2rem;
   }
   .m-jumbotron {
     padding-top: 70px;

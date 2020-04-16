@@ -28,7 +28,7 @@ window.addEventListener("load", function() {
                 collectAllIds.push(place.id);
             }
             document.getElementById("results_arr").insertAdjacentHTML("beforeend", html.join(""));
-            callback(getURLVenuesId(collectAllIds));
+            //callback(getURLVenuesId(collectAllIds));
         });
     }
     populateCards(function () {
@@ -41,12 +41,16 @@ function getAllData(url, callback) {
     xhr.open('GET', url, true);
     xhr.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
+            document.getElementById("spinner-front").classList.remove("show");
+            document.getElementById("spinner-back").classList.remove("show");
             callback(this.responseText);
         }
     };
     xhr.onerror = function() {
         alert("Woops, there was an error making the request.");
     };
+    document.getElementById("spinner-front").classList.add("show");
+    document.getElementById("spinner-back").classList.add("show");
     xhr.send();
 }
 

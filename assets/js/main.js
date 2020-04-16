@@ -29,7 +29,7 @@ function populateInspiration(places, cb) {
 populateInspiration("hotels",function(){
     populateInspiration("restaurants",function(){
         populateInspiration("museums", function(){
-            // getURLVenuesId(collectAllVenuesId);
+            getURLVenuesId(collectAllVenuesId);
         });
     });
 });
@@ -99,6 +99,8 @@ function getPhotos(i,url,id) {
         var photos = JSON.parse(resp).response.venue.photos.groups[0].items[0]; 
         var url = photos.prefix + photos.width + "x" + photos.height + photos.suffix;
         var getSinglePhoto = document.getElementById("photo_" + (i+1));
+        getSinglePhoto.classList.remove("img-insp");
+        getSinglePhoto.classList.add("cover-image");
         getSinglePhoto.src = url;
         getSinglePhoto.onclick = function(){
             handleClickDetails(id);

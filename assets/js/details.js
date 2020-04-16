@@ -37,12 +37,16 @@ function getAllData(url, callback) {
     xhr.open('GET', url, true);
     xhr.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
+            document.getElementById("spinner-front").classList.remove("show");
+            document.getElementById("spinner-back").classList.remove("show");
             callback(this.responseText);
         }
     };
     xhr.onerror = function() {
         alert("Woops, there was an error making the request.");
     };
+    document.getElementById("spinner-front").classList.add("show");
+    document.getElementById("spinner-back").classList.add("show");
     xhr.send();
 }
 
@@ -90,7 +94,7 @@ function getWebsite(url){
         if (url.length >= 7) {
             formattedURL = url.slice(7);
         }
-        var website = "<i class='fa fa-globe-americas'></i> <a href=' + url + '>website</a>";
+        var website = "<i class='fa fa-globe-americas'></i> <a href='" + url + "' target='_blank'>website</a>";
         document.getElementById("website").innerHTML = website;
     }
 }
@@ -99,7 +103,7 @@ function getPhoneNumber(number){
     if (typeof number.phone === "undefined") {
         document.getElementById("phone_number").innerHTML = "N/A";
     }else{
-        var PhoneNumber = "<i class='fa fa-phone'></i> <a href='tel:"+number.phone+" '>" + number.formattedPhone + "</a>";
+        var PhoneNumber = "<i class='fa fa-phone'></i> <a href='tel:"+number.phone+"'>" + number.formattedPhone + "</a>";
         document.getElementById("phone_number").innerHTML = PhoneNumber;
     }
 }
@@ -124,7 +128,7 @@ function getReview(items){
                 '</div>');
                 document.getElementById("reviews").innerHTML = allReviews.join("");
             }
-            else if(review.description == "" && i==0){
+            else if(review.description == "" && review.description.length < 0){
                 allReviews.push('<div class="card"><div class="card-body"><h5>No Reviews available</h5></div></div>');
                 document.getElementById("reviews").innerHTML = allReviews.join("");
             }
