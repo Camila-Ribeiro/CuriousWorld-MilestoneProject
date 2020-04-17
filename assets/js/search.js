@@ -17,7 +17,7 @@ window.addEventListener("load", function() {
                 resultsFound.classList.add("d-none");
             }
             displayData(data);
-            callback(getURLVenuesId(collectAllIds));
+            // callback(getURLVenuesId(collectAllIds));
         });
     }
     populateCards(function () {
