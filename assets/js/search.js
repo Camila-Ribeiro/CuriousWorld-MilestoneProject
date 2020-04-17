@@ -1,33 +1,22 @@
+var collectAllIds = [];
 window.addEventListener("load", function() {
     var location = sessionStorage.getItem("location");
     var place = sessionStorage.getItem("place");
-    var urlSearch = "https://api.foursquare.com/v2/venues/search?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323&limit=10&ll=53.350140, -6.266155&query=" + place + "&near=" + location;
+    var urlSearch = "https://api.foursquare.com/v2/venues/search?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323&limit=50&ll=53.350140, -6.266155&query=" + place + "&near=" + location;
     document.getElementById("city_place").innerHTML = place;
     document.getElementById("city_location").innerHTML = location;
-    var collectAllIds = [];
-
+    
     function populateCards(callback) {
         getAllData(urlSearch, function(resp) {
             var data = JSON.parse(resp).response.venues;
+            console.log(data)
             if (data == "" || data  == null) {
                 var noResults= document.getElementById("no_results");
                 var resultsFound= document.getElementById("results_found");
                 noResults.classList.remove("d-none");
                 resultsFound.classList.add("d-none");
             }
-            var html =[];
-            for (var index = 0; index < data.length; index++) {
-                var place = data[index];
-                html.push('<div class="row"><div class="col"><div class="media mb-3 media-container"><img id="photo_'+ (index + 1) +'" src="" class="img-media img-fluid" alt="...">' + 
-                   '<div class="media-body"><div class="media-wrapper"><h2 class="mt-0">'+ place.name +'</h2><p>'+ (typeof place.location.address === "undefined" ? "" :place.location.address + ', ') + (typeof place.location.city === "undefined" ? "" :place.location.city + '<br/> ')  + (typeof place.location.country === "undefined" ? 
-                   "" :place.location.country) +'</p><div class="media-wrapper-footer">'+ 
-                    '<button onclick="handleClick(\''+place.id+'\');" type="button" class="btn btn-warning float-right" data-toggle="button">'+ 
-                    'Read More</button><span id="rating_'+ (index +1) +'" class="details-rating"></span>'+
-                    '</div></div></div></div></div></div>');
-
-                collectAllIds.push(place.id);
-            }
-            document.getElementById("results_arr").insertAdjacentHTML("beforeend", html.join(""));
+            displayData(data);
             //callback(getURLVenuesId(collectAllIds));
         });
     }
@@ -91,5 +80,71 @@ function getPhotos(i,url) {
 // GET VENUE ID AND OPEN DETAILS PAGE 
 function handleClick(id) {
   	sessionStorage.setItem("place-id",id);
-    window.location.href='detail-page.html';
+   window.location.href='detail-page.html';
+}
+
+//DISPLAY DATA INSIDE DIVS AND PAGINATION
+function displayData(data){
+    var html =[],
+    page = 1,
+    pagination = [];
+    
+    for (var index = 0; index < data.length; index++) {
+        var place = data[index];
+        
+        if(index % 10 === 0){    
+            pagination.push(`<li class="page-item ${page === 1 ? 'active' : ''}" onclick="handlePagination(this)"><span class="page-link">${page}</span></li>`);       
+            index !== 0 ? html.push(`</div><div class="page page${page}">`) : html.push(`<div class="page page${page} currentPage">`);
+            html.push(`<div class="row"><div class="col"><div class="media mb-3 media-container"><img id="photo_${index + 1}" 
+            src="" class="img-media img-fluid" alt="..."><div class="media-body"><div class="media-wrapper"><h2 class="mt-0">${place.name}</h2>
+            <p>${typeof place.location.address === "undefined" ? "" :place.location.address}, 
+            ${typeof place.location.city === "undefined" ? "" :place.location.city + '<br/>'} ${typeof place.location.country === "undefined" ? 
+            "" :place.location.country} </p><div class="media-wrapper-footer"><button onclick="handleClick('${place.id}');" 
+            type="button" class="btn btn-warning float-right" data-toggle="button">Read More</button><span id="rating_${index +1}" 
+            class="details-rating"></span></div></div></div></div></div></div>`);
+            page++;
+        } else {
+            html.push(`<div class="row"><div class="col"><div class="media mb-3 media-container"><img id="photo_${index + 1}" 
+            src="" class="img-media img-fluid" alt="..."><div class="media-body"><div class="media-wrapper"><h2 class="mt-0">${place.name}</h2>
+            <p>${typeof place.location.address === "undefined" ? "" :place.location.address}, 
+            ${typeof place.location.city === "undefined" ? "" :place.location.city + '<br/>'} ${typeof place.location.country === "undefined" ? 
+            "" :place.location.country} </p><div class="media-wrapper-footer"><button onclick="handleClick('${place.id}');" 
+            type="button" class="btn btn-warning float-right" data-toggle="button">Read More</button><span id="rating_${index +1}" 
+            class="details-rating"></span></div></div></div></div></div></div>`);
+        }
+        collectAllIds.push(place.id);
+    }
+    document.getElementById("results_arr").insertAdjacentHTML("beforeend", html.join(""));
+    document.getElementById("pagination").insertAdjacentHTML("beforeend", pagination.join(""));
+}
+
+function handlePagination(event) {
+    var page = event.children[0].innerText;
+    resetClass();
+    document.querySelector(`.page${page}`).classList.add("currentPage");
+    event.classList.add("active");
+    smoothScroll();
+}
+
+//code from https://stackoverflow.com/questions/42261524/how-to-window-scrollto-with-a-smooth-effect
+const smoothScroll = (h) => {
+    let i = h || 0;
+    if (i < 100) {
+        setTimeout(() => {
+        window.scrollTo(0, i);
+        smoothScroll(i + 1);
+        }, 10);
+    }
+}
+
+function resetClass() {
+    var array = document.querySelectorAll(".currentPage");
+    var active = document.querySelectorAll(".active");
+    for (let index = 0; index < array.length; index++) {
+        array[index].classList.remove("currentPage");
+    }
+
+    for (let index = 0; index < active.length; index++) {
+        active[index].classList.remove("active");
+    }
 }

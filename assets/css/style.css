@@ -147,6 +147,9 @@ section.inspiration h3 {
 #city_location {
   text-transform: capitalize;
 }
+.custom-pagination{
+  display: flex;
+}
 /* ------------------------- Details  */
 .card-details {
   background-color: #ffffff;
@@ -204,6 +207,12 @@ img {
 }
 .card {
   border: none;
+}
+.page {
+  display: none;
+}
+.page.currentPage {
+  display: block;
 }
 .page-item.active .page-link {
   color: #0e0101;
