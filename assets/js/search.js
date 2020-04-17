@@ -2,7 +2,7 @@ var collectAllIds = [];
 window.addEventListener("load", function() {
     var location = sessionStorage.getItem("location");
     var place = sessionStorage.getItem("place");
-    var urlSearch = "https://api.foursquare.com/v2/venues/search?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323&limit=50&ll=53.350140, -6.266155&query=" + place + "&near=" + location;
+    var urlSearch = `https://api.foursquare.com/v2/venues/search?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323&limit=50&ll=53.350140, -6.266155&query=${place}&near=${location}`;
     document.getElementById("city_place").innerHTML = place;
     document.getElementById("city_location").innerHTML = location;
     
@@ -17,7 +17,7 @@ window.addEventListener("load", function() {
                 resultsFound.classList.add("d-none");
             }
             displayData(data);
-            //callback(getURLVenuesId(collectAllIds));
+            callback(getURLVenuesId(collectAllIds));
         });
     }
     populateCards(function () {
@@ -48,7 +48,7 @@ function getURLVenuesId(id) {
     var arrId = id;
     for (var index = 0; index < arrId.length; index++) {
         var elementID = arrId[index];
-        var url = "https://api.foursquare.com/v2/venues/" + elementID + "/?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323";    
+        var url = `https://api.foursquare.com/v2/venues/${elementID}/?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323`;    
         getRatings(index,url);
         getPhotos(index,url);
     }
@@ -58,8 +58,8 @@ function getURLVenuesId(id) {
 function getRatings(i,url) {
     getAllData(url, function(resp) {
         var rating = JSON.parse(resp).response.venue.rating; 
-        var getSingleRating = document.getElementById("rating_" + (i+1));
-        getSingleRating.insertAdjacentHTML("beforeend", (typeof rating === "undefined" ? "<i class='fa fa-star'></i> N/A" :"<i class='fa fa-star'></i> " +rating+"")); 
+        var getSingleRating = document.getElementById(`rating_${i+1}`);
+        getSingleRating.insertAdjacentHTML("beforeend", `${typeof rating === "undefined" ? "<i class='fa fa-star'></i> N/A" :`<i class='fa fa-star'></i> ${rating}`}`); 
     });
 }
 
@@ -68,11 +68,11 @@ function getPhotos(i,url) {
     getAllData(url, function(resp) {
         var url;
         var photos = JSON.parse(resp).response.venue.photos; 
-        var getSinglePhoto = document.getElementById("photo_" + (i+1));
+        var getSinglePhoto = document.getElementById(`photo_${i+1}`);
         if (!photos.groups.length) {
             url = "assets/images/image-not-available.jpg"; 
         }else{
-            url = photos.groups[0].items[0].prefix + 350 + "x" + 250 + photos.groups[0].items[0].suffix;
+            url = `${photos.groups[0].items[0].prefix}` + 350 + "x" + 250 + `${photos.groups[0].items[0].suffix}`;
         } 
         getSinglePhoto.src = url;
     });

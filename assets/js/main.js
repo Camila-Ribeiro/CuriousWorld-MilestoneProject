@@ -36,7 +36,6 @@ populateInspiration("hotels",function(){
 
 //LOOP RANDOM ITEMS INTO INSPIRE ME SECTION
 function getRandomItems(list, data, places) {
-    
     for (var index = 0; index < list.length; index++) {   
         if (list.length >= 3 && index < 3) {
             var randomIndex = Math.floor(Math.random() * list.length);
@@ -51,21 +50,21 @@ function getRandomItems(list, data, places) {
 //GET VENUES's TITLE INTO INSPIRE ME SECTION
 function getTitleInspiration(obj,i,places) {
     if(places === "hotels") {
-        var hotelName = document.getElementById("hotels_insp_" + (i+1));
+        var hotelName = document.getElementById(`hotels_insp_${i+1}`);
         hotelName.innerHTML = obj.venue.name;
         hotelName.onclick = function(){
             handleClickDetails(obj.venue.id);
         };
     }
     else if(places === "restaurants") {
-        var restName = document.getElementById("rest_insp_" + (i+1));
+        var restName = document.getElementById(`rest_insp_${i+1}`);
         restName.innerHTML = obj.venue.name;
         restName.onclick = function(){
             handleClickDetails(obj.venue.id);
         };
     }
     else if(places === "museums") {
-        var museumName = document.getElementById("museum_insp_" + (i+1));
+        var museumName = document.getElementById(`museum_insp_${i+1}`);
         museumName.innerHTML = obj.venue.name;
         museumName.onclick = function(){
             handleClickDetails(obj.venue.id);
@@ -78,7 +77,7 @@ function getURLVenuesId(id) {
     var arrId = id;
     for (var index = 0; index < arrId.length; index++) {
         var elementID = arrId[index];
-        var url = "https://api.foursquare.com/v2/venues/" + elementID + "/?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323";    
+        var url = `https://api.foursquare.com/v2/venues/${elementID}/?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323`;    
         getRatings(index,url);
         getPhotos(index,url,elementID);
     }
@@ -88,7 +87,7 @@ function getURLVenuesId(id) {
 function getRatings(i,url) {
     getAllData(url, function(resp) {
         var rating = JSON.parse(resp).response.venue.rating; 
-        var getSingleRating = document.getElementById("rating_" + (i+1));
+        var getSingleRating = document.getElementById(`rating_${i+1}`);
         getSingleRating.insertAdjacentHTML("beforeend", rating); 
     });
 }
@@ -96,22 +95,20 @@ function getRatings(i,url) {
 // GET ALL VENUE's PHOTOS
 function getPhotos(i,url,id) {
     getAllData(url, function(resp) {
-        var photos = JSON.parse(resp).response.venue.photos.groups[0].items[0]; 
-        var url = photos.prefix + photos.width + "x" + photos.height + photos.suffix;
-        var getSinglePhoto = document.getElementById("photo_" + (i+1));
-
-        if (items === undefined || items.length == 0) {
-            getSinglePhoto.push('<img src="assets/images/image-not-available-small.jpg" class="img-media img-fluid mb-3" alt="image-not-available">');
-            document.getElementById("photo_" + (i+1)).innerHTML = getSinglePhoto.join("");
+        var photos = JSON.parse(resp).response.venue.photos; 
+        var getSinglePhoto = document.getElementById(`photo_${i+1}`);
+        if (!photos.groups.length) {
+            url = "assets/images/image-not-available.jpg"; 
         }else{
-            
-            getSinglePhoto.classList.remove("img-insp");
-            getSinglePhoto.classList.add("cover-image");
-            getSinglePhoto.src = url;
-            getSinglePhoto.onclick = function(){
-                handleClickDetails(id);
-            };
-        }
+            url = `${photos.groups[0].items[0].prefix + photos.groups[0].items[0].width}` + "x" + `${photos.groups[0].items[0].height + photos.groups[0].items[0].suffix}`;
+        } 
+        getSinglePhoto.classList.remove("img-insp");
+        getSinglePhoto.classList.add("cover-image");
+        getSinglePhoto.src = url;
+
+        getSinglePhoto.onclick = function(){
+            handleClickDetails(id);
+        };
     });
 }
 
