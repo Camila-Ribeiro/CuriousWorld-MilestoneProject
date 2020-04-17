@@ -1,6 +1,6 @@
 window.addEventListener("load", function() {
     var venueId = sessionStorage.getItem("place-id");
-    var urlDetails = "https://api.foursquare.com/v2/venues/" + venueId + "/?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323";  
+    var urlDetails = `https://api.foursquare.com/v2/venues/${venueId}/?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323`;  
 
     function populateDetails() {
         getAllData(urlDetails, function(resp) {
@@ -14,10 +14,7 @@ window.addEventListener("load", function() {
             var lat = data.location.lat;
             var lng = data.location.lng;
 
-            
-
-            cardTittle_Address.push('<h1 class="mt-1">'+ data.name +'<span class="details-rating"> '+ (typeof data.rating === "undefined" ? "<i class='fa fa-star'></i> N/A" :"<i class='fa fa-star'></i> " +data.rating+"")
-               +'</span></h1><p>'+ data.location.formattedAddress +'</p>');
+            cardTittle_Address.push(`<h1 class="mt-1">${data.name}<span class="details-rating"> ${typeof data.rating === "undefined" ? "<i class='fa fa-star'></i> N/A" :`<i class='fa fa-star'></i>${data.rating}`}</span></h1><p>${data.location.formattedAddress}</p>`);
             document.getElementById("card_details_header").innerHTML = cardTittle_Address.join("");
             
             getTimes(getHours);
@@ -52,18 +49,17 @@ function getAllData(url, callback) {
 
 function getPhotos(items){
     var photoSlides =[];
-
     if (items === undefined || items.length == 0) {
         photoSlides.push('<img src="assets/images/image-not-available-small.jpg" class="img-media img-fluid mb-3" alt="image-not-available">');
         document.getElementById("single_photo").innerHTML = photoSlides.join("");
     } else {
         var allItems = items[0].items;
         for (var i = 0; i < allItems.length; i++) { 
-            if (allItems.length > 1 ) {
-                photoSlides.push((allItems[0] ? '<div class="carousel-item '+(i === 0 ? "active" : "")+'"><img src=" '+ allItems[i].prefix + 200 + "x" + 100 + allItems[i].suffix +' " class="d-block w-100" alt="..."></div>' :'<div class="carousel-item"><img src=" '+ allItems[i].prefix + 200 + "x" + 100 + allItems[i].suffix +' " class="d-block w-100" alt="..."></div>'));
+            if (allItems.length > 1 ) { 
+                photoSlides.push(`${allItems[0] ? `<div class="carousel-item ${i === 0 ? "active" : ""}"><img src="${allItems[i].prefix + 200 + "x" + 100 + allItems[i].suffix}" class="d-block w-100" alt="..."></div>` :`<div class="carousel-item"><img src="${allItems[i].prefix + 200 + "x" + 100 + allItems[i].suffix}" class="d-block w-100" alt="..."></div>`}`);
                 document.getElementById("carousel_details").innerHTML = photoSlides.join("");
             } else {
-                photoSlides.push('<img src="'+allItems[i].prefix + 200 + "x" + 100 + allItems[i].suffix+'" class="img-media img-fluid" alt="image-not-available">');
+                photoSlides.push(`<img src="${allItems[i].prefix + 200 + "x" + 100 + allItems[i].suffix}" class="img-media img-fluid" alt="image-not-available">`);
                 document.getElementById("single_photo").innerHTML = photoSlides.join("");
             } 
         }
@@ -79,7 +75,7 @@ function getTimes(hours) {
             var time = hours.timeframes[index].open[0].renderedTime;
             var days = hours.timeframes[index].days;
             var splitDays = days.slice(" ", 7);
-            var formattedDays = splitDays + " "+ time + "<br/>";
+            var formattedDays = splitDays + " " + time + "<br/>";
             daysAndTimes.push(formattedDays);
             document.getElementById("opening_hours").innerHTML = daysAndTimes.join("");
         }
@@ -94,7 +90,7 @@ function getWebsite(url){
         if (url.length >= 7) {
             formattedURL = url.slice(7);
         }
-        var website = "<i class='fa fa-globe-americas'></i> <a href='" + url + "' target='_blank'>website</a>";
+        var website = `<i class="fa fa-globe-americas"></i> <a href="${url}" target="_blank">website</a>`;
         document.getElementById("website").innerHTML = website;
     }
 }
@@ -103,7 +99,7 @@ function getPhoneNumber(number){
     if (typeof number.phone === "undefined") {
         document.getElementById("phone_number").innerHTML = "N/A";
     }else{
-        var PhoneNumber = "<i class='fa fa-phone'></i> <a href='tel:"+number.phone+"'>" + number.formattedPhone + "</a>";
+        var PhoneNumber = `<i class="fa fa-phone"></i> <a href="tel:${number.phone}">${number.formattedPhone}</a>`;
         document.getElementById("phone_number").innerHTML = PhoneNumber;
     }
 }
@@ -119,13 +115,8 @@ function getReview(items){
             var review = allItems[i];
 
             if (review.description !== "" && i < 3) {
-                allReviews.push('<div class="card">'+
-                '<img src="'+review.user.photo.prefix + "original" + review.user.photo.suffix+'" class="w-25 mt-1 rounded-circle mx-auto card-img-top" alt="..." />'+
-                '<div class="card-body">'+
-                '<h5 class="card-title">'+review.user.firstName+'</h5>'+
-                '<p class="card-text">'+review.description+'</p>'+
-                '</div>'+
-                '</div>');
+                allReviews.push(`<div class="card">
+                <img src="${review.user.photo.prefix + "original" + review.user.photo.suffix}" class="w-25 mt-1 rounded-circle mx-auto card-img-top" alt="..." /><div class="card-body"><h5 class="card-title">${review.user.firstName}</h5><p class="card-text">${review.description}</p></div></div>`);
                 document.getElementById("reviews").innerHTML = allReviews.join("");
             }
             else if(review.description == "" && review.description.length < 0){
@@ -137,5 +128,5 @@ function getReview(items){
 }
 
 function getLocation(lat,lng){
-    document.getElementById("google_maps").src = "https://maps.google.com/maps/embed/v1/place?key=AIzaSyAOySuSdP6NVXz7LglBAl1sp1CHXrZeFqQ&q="+lat+","+lng+"";
+    document.getElementById("google_maps").src = `https://maps.google.com/maps/embed/v1/place?key=AIzaSyAOySuSdP6NVXz7LglBAl1sp1CHXrZeFqQ&q=${lat},${lng}`;
 }

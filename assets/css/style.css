@@ -156,6 +156,7 @@ section.inspiration h3 {
   border-radius: 5px;
   overflow: hidden;
   margin-top: 40px;
+  padding: 20px;
 }
 .card-details h2 {
   font-size: 1rem;
@@ -263,6 +264,9 @@ img {
    /*Details*/
    .card-body {
     padding: 1.25rem 0;
+  }
+  .card-details {
+    padding: 10px;
   }
 }
 @media (max-width: 767px) {
