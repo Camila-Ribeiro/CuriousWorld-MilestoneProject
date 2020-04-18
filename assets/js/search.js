@@ -97,7 +97,7 @@ function displayData(data){
             index !== 0 ? html.push(`</div><div class="page page${page}">`) : html.push(`<div class="page page${page} currentPage">`);
             html.push(`<div class="row"><div class="col"><div class="media mb-3 media-container"><img id="photo_${index + 1}" 
             src="" class="img-media img-fluid" alt="..."><div class="media-body"><div class="media-wrapper"><h2 class="mt-0">${place.name}</h2>
-            <p>${typeof place.location.address === "undefined" ? "" :place.location.address}, 
+            <p>${typeof place.location.address === "undefined" ? "" :place.location.address + ","}
             ${typeof place.location.city === "undefined" ? "" :place.location.city + '<br/>'} ${typeof place.location.country === "undefined" ? 
             "" :place.location.country} </p><div class="media-wrapper-footer"><button onclick="handleClick('${place.id}');" 
             type="button" class="btn btn-warning float-right" data-toggle="button">Read More</button><span id="rating_${index +1}" 
@@ -106,7 +106,7 @@ function displayData(data){
         } else {
             html.push(`<div class="row"><div class="col"><div class="media mb-3 media-container"><img id="photo_${index + 1}" 
             src="" class="img-media img-fluid" alt="..."><div class="media-body"><div class="media-wrapper"><h2 class="mt-0">${place.name}</h2>
-            <p>${typeof place.location.address === "undefined" ? "" :place.location.address}, 
+            <p>${typeof place.location.address === "undefined" ? "" :place.location.address + ","}
             ${typeof place.location.city === "undefined" ? "" :place.location.city + '<br/>'} ${typeof place.location.country === "undefined" ? 
             "" :place.location.country} </p><div class="media-wrapper-footer"><button onclick="handleClick('${place.id}');" 
             type="button" class="btn btn-warning float-right" data-toggle="button">Read More</button><span id="rating_${index +1}" 
@@ -129,7 +129,7 @@ function handlePagination(event) {
 //code from https://stackoverflow.com/questions/42261524/how-to-window-scrollto-with-a-smooth-effect
 const smoothScroll = (h) => {
     let i = h || 0;
-    if (i < 100) {
+    if (i < 90) {
         setTimeout(() => {
         window.scrollTo(0, i);
         smoothScroll(i + 1);

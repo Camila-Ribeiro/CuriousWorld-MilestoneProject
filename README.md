@@ -85,8 +85,8 @@ A standard layout is fully responsive on mobile devices and larger screens.
 
 ### Wireframes
 My wireframes for this project can be found in the UX folder.
-[Desktop Wireframe] (https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/UX/desktop-wireframe/desktop.pdf)
-[Mobile Wireframe] (https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/UX/mobile-wireframe/mobile.pdf)
+- [Desktop Wireframe] (https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/UX/desktop-wireframe/desktop.pdf)
+- [Mobile Wireframe] (https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/UX/mobile-wireframe/mobile.pdf)
 
 ##### back to [top](#table-of-contents)
  
@@ -129,7 +129,7 @@ Automated and manual testing were conducted during this project. I also have val
 * [JShint](https://jshint.com/)
 
 ### Manual Testing
-More details can be found on my [manual testing folder] (testing/manual)
+More details can be found on my [manual testing folder] (testing/manual/)
 
 I have also created a testing matrix ([raw Excel file here](testing/manual/testing-curious-world.xlsx)).
 
@@ -150,7 +150,7 @@ I have also created a testing matrix ([raw Excel file here](testing/manual/testi
 I used [Jasmine 3.5.0](https://jasmine.github.io/) in conjunction with [jasmine-jquery 2.1.1](https://github.com/velesin/jasmine-jquery) to build all automated tests (test-driven development). These tests can be found in the [testing/automated(../blob/master/Testing.md) folder.
 
 There are 13 tests in my specs, all successfully passing, with 0 failures.
-![Jasmine Spec Results](testing/automated/jasmine-test.jpg "Jasmine Spec Results")
+![Jasmine Spec Results](testing/automated/jasmine-test.png "Jasmine Spec Results")
 
 <details>
 <summary><b>CLICK HERE</b> to see tests on the <b>Curious World website testing</b></summary>
