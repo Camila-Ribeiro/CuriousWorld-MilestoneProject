@@ -1,27 +1,26 @@
-[# Curious World Website](https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/)
+! [Curious World Website](https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/)
 
 ## Table of Contents
+1. [**UX**](#ux)
+    - [**User Stories**](#user-stories)
+    - [**Libraries/Framework Used**](#Libraries/-framework-used)
+    - [**Wireframes**](#wireframes)
 
-1. [UX](##UX) 
-*  [User Stories](###User Stories)
-*  [Libraries/ Framework Used](###Libraries/ Framework Used)  
-*  [Wireframes](###Wireframes) 
+2. [**Technologies Used**](#technologies-used)
+    - [**Front-End Technologies**](#front-end-technologies)
 
-2. [Technologies Used](##Technologies Used) 
-*  [Front-End Technologies](###Front-End Technologies) 
+3. [**Testing**](#testing)
+    - [**Validators**](#validators)
+    - [**Automated Testing**](#automated-testing)
 
-3. [Libraries/ Framework Used](##Libraries/ Framework Used) 
+4. [**Deployment**](#deployment)
+    - [**Local Deployment**](#local-deployment)
+    - [**Remote Deployment**](#remote-deployment)
 
-4. [Testing](##Testing)
-*  [Validators](###Validators)
-*  [Automated Testing](###Automated Testing)
-
-5. [Deployment](##Deployment)
-
-6. [Credits](##Credits)
-*  [Content](###Content)
-*  [Media](###Media)
-*  [Acknowledgements](###Acknowledgements)
+5. [**Credits**](#credits)
+    - [**Content**](#content)
+    - [**Media**](#media)
+    - [**Acknowledgements**](#acknowledgements)
 
 ***
 
@@ -49,28 +48,28 @@ The website is simple and structured in a way that is easy to navigate and find 
 
 ### [Wireframes] (https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/UX/UX-Wireframe.pdf)
 
- back to [top](## Table of Contents)
+##### back to [top](#table-of-contents)
+ 
 ***
 
-## Features
-### Existing Features
-- Feature 1 - home page - cards (Facials, Body, Nails, Lashes, Waxing) -allow users to click on "read more" and have more information about each treatment offered. Another way to do this is through navigation menu on "Services".
-- Feature 2 - price list page - treatments are displayed in tabs for an easier search of prices throughout the services offered. Each card has a hover effect to keep the price list more fun.
-- Feature 3 - Facebook and Instagram icons - for small devices such as mobile and tablets it is displayed to appear at the top of the page on the right hand side. For larger screens such as iPad Pro and desktop it is displayed on the right hand side on a fixed position.
-- Feature 4 - contact page - The map is clickable and it redirect the user to google maps.
-- Feature 5 - contact page - At the bottom of the page there is a Get in touch section which there is a link to WhatsApp business chat.
 
- 
-back to [top](##Table of Contents)
-*** 
 ## Technologies Used
+
 ### Front-End Technologies
 <b>Built with</b>
-- HTML5
-- CSS3
-- JavaScript
+- ![HTML5](https://img.shields.io/static/v1?label=HTML&message=5&color=E34F26&logo=html5&logoColor=ffffff)
+    - [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - Used as the base for markup text.
+- ![CSS3](https://img.shields.io/static/v1?label=CSS&message=3&color=1572B6&logo=css3&logoColor=ffffff)
+    - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3) - Used as the base for cascading styles.
+- ![JavaScript](https://img.shields.io/static/v1?label=JavaScript&message=ES6&color=F7DF1E&logo=javascript&logoColor=ffffff)
+    - [JavaScript ES6](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Used as the base for game interaction.
+- ![Jasmine](https://img.shields.io/static/v1?label=Jasmine&message=3.5.0&color=8A4182)
+    - [Jasmine](https://jasmine.github.io/) - Used for Test-Driven Development (TDD).
+- ![jasmine-jquery](https://img.shields.io/static/v1?label=jasmine-jquery&message=2.1.1&color=535B9F)
+    - [jasmine-jquery](https://www.npmjs.com/package/jasmine-jquery) - Used to simplify some of the automated Jasmine tests.
+
  
-back to [top](##Table of Contents)
+##### back to [top](#table-of-contents)
 ***
 
 ## Testing
@@ -85,6 +84,7 @@ Part of the testing was done
 The website version for mobile and ipad works very similar to the desktop and Ipad pro version except the deck cards across the desktop and Ipad pro are placed on set of 2 or 3 cards in a row and for mobile it is stacked.
 
 ### Validators 
+
 #### HTML
 * [W3C HTML Validator](https://validator.w3.org/)
 #### CSS
@@ -96,19 +96,58 @@ The website version for mobile and ipad works very similar to the desktop and Ip
 I used [Jasmine 3.5.0](https://jasmine.github.io/) in conjunction with [jasmine-jquery 2.1.1](https://github.com/velesin/jasmine-jquery) to build all automated tests (test-driven development). These tests can be found in the [testing/automated(../blob/master/Testing.md) folder.
 
 There are 59 tests in my specs, all successfully passing, with 0 failures.
+![Jasmine Spec Results](testing/automated/jasmine-spec-results.png?raw=true "Jasmine Spec Results")
 
-back to [top](##Table of Contents)
+<details>
+<summary><b>CLICK HERE</b> to see tests on the <b>My btnSearch.onclick function</b></summary>
+
+- describe: The Search Button
+- describe: Get the values of radio buttons and checked by default
+- describe: My inputLoc.oninput function
+
+</details>
+<details>
+<summary><b>CLICK HERE</b> to see tests on the <b>The Search Button</b></summary>
+
+- should exist
+- should trigger click on Search button
+- should clear session storage when click on Search button
+- should get value from radio button places when is checked
+- should validate when value of input(inputLoc) is empty
+
+</details>
+
+<details>
+<summary><b>CLICK HERE</b> to see tests on the <b>Get the values of radio buttons and checked by default</b></summary>
+
+- should exist
+- radio button should be hotels value
+- radio button should be restaurants value
+- radio button should be museums value
+
+</details>
+
+<details>
+<summary><b>CLICK HERE</b> to see tests on the <b>My inputLoc.oninput function</b></summary>
+
+- should exist
+- should validate when value of input(inputLoc) is deleted by user
+- should validate when value of input(inputLoc) is filled
+
+</details>
+
+##### back to [top](#table-of-contents)
+
 *** 
 ## Deployment
-My [Curious World repository](https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/) was developed locally using VS Code, and all commits were pushed to GitHub using Git.
-## Website Link
-This website was deployed on [GitHub Pages]
- 
- 
-This website is deployed on GitHub pages built from the Master branch to publish the project.
+
+My [Curious World repository](https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/) was developed locally using **VS Code**, and all commits were pushed to **GitHub** using **Git**.
+
+This website was deployed on GitHub pages built from the Master branch to publish the project.
 To run this project locally, download the files and navigate through the index.html to start.
  
-back to [top](##Table of Contents)
+##### back to [top](#table-of-contents)
+
 *** 
 ## Credits
 ### Content
@@ -131,7 +170,7 @@ The photos used on this site were obtained from Foursquare API (https://develope
 ### Acknowledgements
 I received inspiration for this project from .....?
 
-back to [top](##Table of Contents)
+##### back to [top](#table-of-contents)
 
  
 

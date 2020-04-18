@@ -42,11 +42,11 @@ describe("My btnSearch.onclick function", () => {
              }
         });
 
-        it("Should exist", () => {
+        it("should exist", () => {
             expect($("btnSearch")).toBeDefined();
         });
 
-        it("Should trigger click on Search button", () => {
+        it("should trigger click on Search button", () => {
             let spyEvent = spyOnEvent('#button_search', 'click');
             $('#button_search').click();
             expect('click').toHaveBeenTriggeredOn('#button_search');
@@ -76,7 +76,7 @@ describe("My btnSearch.onclick function", () => {
             expect(radioPlaces).toHaveValue();
         });
         
-        it("Should validate when value of input(inputLoc) is empty", () => {
+        it("should validate when value of input(inputLoc) is empty", () => {
             let spyEvent = spyOnEvent('#button_search', 'click');
             let inputLocValue = document.getElementById("places_loc").value;
             let inputLoc = document.getElementById("places_loc");
@@ -157,7 +157,7 @@ describe("My btnSearch.onclick function", () => {
         it("should exist", () => {
             expect(inputLoc).toBeDefined();
         });
-        it("Should validate when value of input(inputLoc) is deleted by user", () => {
+        it("should validate when value of input(inputLoc) is deleted by user", () => {
             let inputLocValue = document.getElementById("places_loc");
             inputLocValue.removeAttribute("value");
             let inputLoc = document.getElementById("places_loc");
@@ -171,7 +171,7 @@ describe("My btnSearch.onclick function", () => {
             expect(inputLoc).toHaveClass("border-danger");
             expect(inputMessage).toHaveCss({display:"block"});
         });
-        it("Should validate when value of input(inputLoc) is filled", () => {
+        it("should validate when value of input(inputLoc) is filled", () => {
             let inputLocValue = document.getElementById("places_loc").value;
             let inputLoc = document.getElementById("places_loc");
             let inputMessage = document.getElementById("places_loc_error");
@@ -185,4 +185,4 @@ describe("My btnSearch.onclick function", () => {
             expect(inputMessage).toHaveCss({display:"none"});
         });
     });
-}); //CLOSE FIRST
+}); //CLOSE FIRST DESCRIBE
