@@ -1,4 +1,4 @@
-! [Curious World Website](https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/)
+# [Curious World Website](https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/)
 
 ## Table of Contents
 1. [**UX**](#ux)
@@ -28,6 +28,7 @@
 ## UX
 Curious World is a website designed for users with interest in find out information about hotels, restaurants and museums across different cities all over the world. It offers photos, reviews, ratings, maps, websites and phone numbers.
 The website is simple and structured in a way that is easy to navigate and find the information needed. It was designed based on database from Foursquare API.
+
  
 ### User Stories
 - As a user I want to find out about hotels in London City, to perform this action I clicked on input where contains the message "Please type city's name (i.e Dublin)", then I selected the radio button "Hotels" and clicked on "search" button, doing that I achieved my goal to see a list of hotels in London.
@@ -36,7 +37,7 @@ The website is simple and structured in a way that is easy to navigate and find 
  
 - As a user I want to check the details about a specific hotel from the Search Results page, then I clicked on "Read More" button and got redirected to the Details page where I can find all the details about that selected hotel. My goal was accomplished and now I can read detailed information about the Hotel in London such as full address, phone number, website, reviews, ratings and check the location on map.
  
-- As a user I want to contact Curous World website, to perform this action I clicked on "Contact Us"on the Menu Navigation and filled up the form with my full name, email address and message and submitted my query, doing that I achieve my goal to contact Curious World.
+- As a user I want to contact Curous World website, to perform this action I clicked on "Contact Us" on the Menu Navigation and filled up the form with my full name, email address and message and submitted my query, doing that I achieve my goal to contact Curious World.
 
 ### Libraries/ Framework Used
 - [Bootstrap 4](https://getbootstrap.com/)
@@ -46,7 +47,12 @@ The website is simple and structured in a way that is easy to navigate and find 
 - [Jasmine](https://jasmine.github.io/)
 - [Jasmine - jQuery](https://github.com/velesin/jasmine-jquery)
 
-### [Wireframes] (https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/UX/UX-Wireframe.pdf)
+### Wireframes
+My wireframes for this project can be found in the [**wireframes**](assets/wireframes/) folder.
+[Wireframes] (https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/UX/UX-Wireframe.pdf)
+
+The website version for mobile and ipad works very similar to the desktop and Ipad pro version except the deck cards across the desktop and Ipad pro are placed on set of 2 or 3 cards in a row and for mobile it is stacked.
+
 
 ##### back to [top](#table-of-contents)
  
@@ -62,7 +68,7 @@ The website is simple and structured in a way that is easy to navigate and find 
 - ![CSS3](https://img.shields.io/static/v1?label=CSS&message=3&color=1572B6&logo=css3&logoColor=ffffff)
     - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3) - Used as the base for cascading styles.
 - ![JavaScript](https://img.shields.io/static/v1?label=JavaScript&message=ES6&color=F7DF1E&logo=javascript&logoColor=ffffff)
-    - [JavaScript ES6](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Used as the base for game interaction.
+    - [JavaScript ES6](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Used as the base for website interaction.
 - ![Jasmine](https://img.shields.io/static/v1?label=Jasmine&message=3.5.0&color=8A4182)
     - [Jasmine](https://jasmine.github.io/) - Used for Test-Driven Development (TDD).
 - ![jasmine-jquery](https://img.shields.io/static/v1?label=jasmine-jquery&message=2.1.1&color=535B9F)
@@ -73,15 +79,10 @@ The website is simple and structured in a way that is easy to navigate and find 
 ***
 
 ## Testing
-The website was tested many times and I conducted a user test with two users. A few bugs were found during this process like  
+Automated and manual testing were conducted and also a user test with two users. A few bugs were found during this process like .....? 
+More details can be found on my [manual Testing file](../blob/master/testing/testing.md)
 
-bla bla blaclicking on the button "Read More" wasn't opening the right page, was 404 error or pages weren't opening in a new tab which now is all fixed.
- 
-Part of the testing was done 
-
-[Testing file](../blob/master/Testing.md) ?? check if it correct
- 
-The website version for mobile and ipad works very similar to the desktop and Ipad pro version except the deck cards across the desktop and Ipad pro are placed on set of 2 or 3 cards in a row and for mobile it is stacked.
+I also have validated all files using online validation sites:
 
 ### Validators 
 
@@ -95,8 +96,8 @@ The website version for mobile and ipad works very similar to the desktop and Ip
 ### Automated Testing
 I used [Jasmine 3.5.0](https://jasmine.github.io/) in conjunction with [jasmine-jquery 2.1.1](https://github.com/velesin/jasmine-jquery) to build all automated tests (test-driven development). These tests can be found in the [testing/automated(../blob/master/Testing.md) folder.
 
-There are 59 tests in my specs, all successfully passing, with 0 failures.
-![Jasmine Spec Results](testing/automated/jasmine-spec-results.png?raw=true "Jasmine Spec Results")
+There are 13 tests in my specs, all successfully passing, with 0 failures.
+![Jasmine Spec Results](assets/images/jasmine-test.jpg "Jasmine Spec Results")
 
 <details>
 <summary><b>CLICK HERE</b> to see tests on the <b>My btnSearch.onclick function</b></summary>
