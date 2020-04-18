@@ -14,7 +14,7 @@ window.addEventListener("load", function() {
             var lat = data.location.lat;
             var lng = data.location.lng;
 
-            cardTittle_Address.push(`<h1 class="mt-1">${data.name}<span class="details-rating"> ${typeof data.rating === "undefined" ? "<i class='fa fa-star'></i> N/A" :`<i class='fa fa-star'></i>${data.rating}`}</span></h1><p>${data.location.formattedAddress}</p>`);
+            cardTittle_Address.push(`<h1 class="mt-1">${data.name}<span class="details-rating"> ${typeof data.rating === "undefined" ? "<i class='fa fa-star'></i> N/A" :`<i class='fa fa-star'></i> ${data.rating}`}</span></h1><p>${data.location.formattedAddress}</p>`);
             document.getElementById("card_details_header").innerHTML = cardTittle_Address.join("");
             
             getTimes(getHours);
@@ -103,7 +103,7 @@ function getPhoneNumber(number){
         document.getElementById("phone_number").innerHTML = PhoneNumber;
     }
 }
-
+// data.listed.groups
 function getReview(items){
     var allReviews =[];
     if (items[0].items.length === 0) {
@@ -119,7 +119,7 @@ function getReview(items){
                 <img src="${review.user.photo.prefix + "original" + review.user.photo.suffix}" class="w-25 mt-1 rounded-circle mx-auto card-img-top" alt="..." /><div class="card-body"><h5 class="card-title">${review.user.firstName}</h5><p class="card-text">${review.description}</p></div></div>`);
                 document.getElementById("reviews").innerHTML = allReviews.join("");
             }
-            else if(review.description == "" && review.description.length < 0){
+            else if(review.description == "" || review.description.length < 0){
                 allReviews.push('<div class="card"><div class="card-body"><h5>No Reviews available</h5></div></div>');
                 document.getElementById("reviews").innerHTML = allReviews.join("");
             }

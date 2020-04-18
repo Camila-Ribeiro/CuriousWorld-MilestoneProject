@@ -22,14 +22,12 @@ section.inspiration h3{
   white-space: nowrap;
   cursor: pointer;
 }
-
 section.inspiration img{
   cursor: pointer;
 }
 section.inspiration h3:hover{
   text-decoration:underline ;
 }
-
 .loading {
   position: absolute;
   background-color:#000;
@@ -65,7 +63,6 @@ section.inspiration h3:hover{
   visibility: visible;
   opacity: 1;
 }
-
 .inspiration {
   margin-top: 70px;
   margin-bottom: 100px;

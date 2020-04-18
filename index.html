@@ -13,147 +13,144 @@
     <title>Curious World - Homepage</title>
 </head>
 <body>
-    <div id="spinner-front">
-      <img src="assets/images/loading.gif" alt="loading gif image"/><br>
-        Loading...
-      </div>
-    <div id="spinner-back"></div>
-    <header>
-      <div id="data"></div>
-    <!--Navbar-->
-    <nav class="navbar navbar-dark bg-dark">
-
-    <!-- Navbar brand -->
-    <a class="navbar-brand " href="index.html">Curious World</a>
-  
-    <!-- Collapse button -->
-    <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
-      aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i class="fa fa-bars"></i></span></button>
-  
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-  
-      <!-- Links -->
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#">Top Rated</a>
-        </li> -->
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact Us</a>
-        </li>
-      </ul>
-      <!-- Links -->
-  
+  <div id="spinner-front">
+    <img src="assets/images/loading.gif" alt="loading gif image"/><br>
+      Loading...
     </div>
-    <!-- Collapsible content -->
-  
-    </nav>
-    <!--/Navbar-->
-    </header>
-    <!--Section-->
-    <section class="container-hero">
-        <div class="hero-img">
-            <div class="container m-jumbotron">
-                <div class="hero-tittle">
-                    <h1 class="text-center mobile-title">Explore The World</h1>
-                    <p class="text-center">Here is where your journey begins...</p>
-                </div>
-                <div class="jumbotron">
-                    <div class="input-group mb-3">
-                        <input id="places_loc" type="text" class="form-control " placeholder="Please type city's name (i.e Dublin)" aria-label="city" aria-describedby="places_loc">
-                        <div class="input-group-append">
-                            <button id="button_search" class="btn btn-outline-secondary" type="button">Search</button>
-                        </div>
-                        <div id="places_loc_error" class="invalid-feedback">Please enter a valid city</div>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="places" id="inlineHotels" value="Hotels" checked>
-                    <label class="form-check-label" for="inlineHotels">Hotels</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="places" id="inlineRestautants" value="Restaurants">
-                    <label class="form-check-label" for="inlineRestautants">Restaurants</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="places" id="inlineMuseums" value="Museums">
-                    <label class="form-check-label" for="inlineMuseums">Museums</label>
-                  </div>
-                </div>
+  <div id="spinner-back"></div>
+  <header>
+    <div id="data"></div>
+  <!--Navbar-->
+  <nav class="navbar navbar-dark bg-dark">
+
+  <!-- Navbar brand -->
+  <a class="navbar-brand " href="index.html">Curious World</a>
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+    aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i class="fa fa-bars"></i></span></button>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#">Top Rated</a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link" href="contact.html">Contact Us</a>
+      </li>
+    </ul>
+    <!-- Links -->
+
+  </div>
+  <!-- Collapsible content -->
+
+  </nav>
+  <!--/Navbar-->
+  </header>
+  <!--Section-->
+  <section class="container-hero">
+    <div class="hero-img">
+        <div class="container m-jumbotron">
+            <div class="hero-tittle">
+                <h1 class="text-center mobile-title">Explore The World</h1>
+                <p class="text-center">Here is where your journey begins...</p>
             </div>
-        </div>  
-    </section>
-    <section class="inspiration">
-        <div class="container">
-            <h1 class="mb-3">Inspire Me</h1>
-            
-            <div class="container mb-5 media-container">
-                <h2 class="mt-2">Hotels</h2>
-                <div class="row">
-                  <div class="col-sm">
-                    <h3 id="hotels_insp_1">Loading...</h3>
-                      <img id="photo_1" class="img-insp" src="assets/images/loading.gif" alt="Responsive image">
-                    <h6 id="rating_1" class="mt-2"><span class="details-rating"><i class="fa fa-star"></i></span>Loading... </h6>
-                  </div>
-                  <div class="col-sm">
-                    <h3 id="hotels_insp_2">Loading...</h3>
-                      <img id="photo_2" class="img-insp" src="assets/images/loading.gif" alt="Responsive image">
-                    <h6 id="rating_2" class="mt-2"><span class="details-rating"><i class="fa fa-star"></i></span>Loading... </h6>
-                  </div>
-                  <div class="col-sm">
-                    <h3 id="hotels_insp_3">Loading...</h3>
-                      <img id="photo_3" class="img-insp" src="assets/images/loading.gif" alt="Responsive image">
-                    <h6 id="rating_3" class="mt-2"><span class="details-rating"><i class="fa fa-star"></i></span>Loading... </h6>
-                  </div>
-                </div>
+            <div class="jumbotron">
+                <div class="input-group mb-3">
+                    <input id="places_loc" type="text" class="form-control " placeholder="Please type city's name (i.e Dublin)" aria-label="city" aria-describedby="places_loc">
+                    <div class="input-group-append">
+                        <button id="button_search" class="btn btn-outline-secondary" type="button">Search</button>
+                    </div>
+                    <div id="places_loc_error" class="invalid-feedback">Please enter a valid city</div>
               </div>
-              
-              <div class="container mb-5 media-container">
-                <h2 class="mt-2">Restaurants</h2>
-                  <div class="row">
-                    <div class="col-sm">
-                      <h3 id="rest_insp_1">Loading...</h3>
-                        <img id="photo_4" class="img-insp" src="assets/images/loading.gif" alt="Responsive image">
-                      <h6 id="rating_4" class="mt-2"><span class="details-rating"><i class="fa fa-star"></i></span>Loading... </h6>
-                    </div>
-                    <div class="col-sm">
-                      <h3 id="rest_insp_2">Loading...</h3>
-                        <img id="photo_5" class="img-insp" src="assets/images/loading.gif" alt="Responsive image">
-                      <h6 id="rating_5" class="mt-2"><span class="details-rating"><i class="fa fa-star"></i></span>Loading... </h6>
-                    </div>
-                    <div class="col-sm">
-                      <h3 id="rest_insp_3">Loading...</h3>
-                        <img id="photo_6" class="img-insp" src="assets/images/loading.gif" alt="Responsive image">
-                      <h6 id="rating_6" class="mt-2"><span class="details-rating"><i class="fa fa-star"></i></span>Loading... </h6>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="container mb-5 media-container">
-                  <h2  class="mt-2">Museums</h2 >
-                    <div class="row">
-                      <div class="col-sm">
-                        <h3 id="museum_insp_1">Loading...</h3>
-                          <img id="photo_7" class="img-insp" src="assets/images/loading.gif" alt="Responsive image">
-                        <h6 id="rating_7" class="mt-2"><span class="details-rating"><i class="fa fa-star"></i></span>Loading... </h6>
-                      </div>
-                      <div class="col-sm">
-                        <h3 id="museum_insp_2">Loading...</h3>
-                          <img id="photo_8" class="img-insp" src="assets/images/loading.gif" alt="Responsive image">
-                        <h6 id="rating_8" class="mt-2"><span class="details-rating"><i class="fa fa-star"></i></span>Loading... </h6>
-                      </div>
-                      <div class="col-sm">
-                        <h3 id="museum_insp_3">Loading...</h3>
-                          <img id="photo_9" class="img-insp" src="assets/images/loading.gif" alt="Responsive image">
-                        <h6 id="rating_9" class="mt-2"><span class="details-rating"><i class="fa fa-star"></i></span>Loading... </h6>
-                      </div>
-                    </div>
-                  </div>
-            <div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="places" id="inlineHotels" value="Hotels" checked>
+                <label class="form-check-label" for="inlineHotels">Hotels</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="places" id="inlineRestautants" value="Restaurants">
+                <label class="form-check-label" for="inlineRestautants">Restaurants</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="places" id="inlineMuseums" value="Museums">
+                <label class="form-check-label" for="inlineMuseums">Museums</label>
+              </div>
             </div>
         </div>
+    </div>  
+  </section>
+  <section class="inspiration">
+    <div class="container">
+        <h1 class="mb-3">Inspire Me</h1>
+        <div class="container mb-5 media-container">
+          <h2 class="mt-2">Hotels</h2>
+          <div class="row">
+            <div class="col-sm-4">
+              <h3 id="hotels_insp_1">Loading...</h3>
+              <img id="photo_1" class="img-insp" src="assets/images/loading.gif" alt="Responsive image">
+              <h6 id="rating_1" class="mt-2"><span class="details-rating"><i class="fa fa-star"></i></span>Loading... </h6>
+            </div>
+            <div class="col-sm-4">
+              <h3 id="hotels_insp_2">Loading...</h3>
+              <img id="photo_2" class="img-insp" src="assets/images/loading.gif" alt="Responsive image">
+              <h6 id="rating_2" class="mt-2"><span class="details-rating"><i class="fa fa-star"></i></span>Loading... </h6>
+            </div>
+            <div class="col-sm-4">
+              <h3 id="hotels_insp_3">Loading...</h3>
+              <img id="photo_3" class="img-insp" src="assets/images/loading.gif" alt="Responsive image">
+              <h6 id="rating_3" class="mt-2"><span class="details-rating"><i class="fa fa-star"></i></span>Loading... </h6>
+            </div>
+          </div>
+        </div>
+          
+        <div class="container mb-5 media-container">
+          <h2 class="mt-2">Restaurants</h2>
+          <div class="row">
+            <div class="col-sm-4">
+              <h3 id="rest_insp_1">Loading...</h3>
+              <img id="photo_4" class="img-insp" src="assets/images/loading.gif" alt="Responsive image">
+              <h6 id="rating_4" class="mt-2"><span class="details-rating"><i class="fa fa-star"></i></span>Loading... </h6>
+            </div>
+            <div class="col-sm-4">
+              <h3 id="rest_insp_2">Loading...</h3>
+              <img id="photo_5" class="img-insp" src="assets/images/loading.gif" alt="Responsive image">
+              <h6 id="rating_5" class="mt-2"><span class="details-rating"><i class="fa fa-star"></i></span>Loading... </h6>
+            </div>
+            <div class="col-sm-4">
+              <h3 id="rest_insp_3">Loading...</h3>
+              <img id="photo_6" class="img-insp" src="assets/images/loading.gif" alt="Responsive image">
+              <h6 id="rating_6" class="mt-2"><span class="details-rating"><i class="fa fa-star"></i></span>Loading... </h6>
+            </div>
+          </div>
+        </div>
+          
+        <div class="container mb-5 media-container">
+          <h2  class="mt-2">Museums</h2>
+          <div class="row">
+            <div class="col-sm-4">
+              <h3 id="museum_insp_1">Loading...</h3>
+              <img id="photo_7" class="img-insp" src="assets/images/loading.gif" alt="Responsive image">
+              <h6 id="rating_7" class="mt-2"><span class="details-rating"><i class="fa fa-star"></i></span>Loading... </h6>
+            </div>
+            <div class="col-sm-4">
+              <h3 id="museum_insp_2">Loading...</h3>
+              <img id="photo_8" class="img-insp" src="assets/images/loading.gif" alt="Responsive image">
+              <h6 id="rating_8" class="mt-2"><span class="details-rating"><i class="fa fa-star"></i></span>Loading... </h6>
+            </div>
+            <div class="col-sm-4">
+              <h3 id="museum_insp_3">Loading...</h3>
+              <img id="photo_9" class="img-insp" src="assets/images/loading.gif" alt="Responsive image">
+              <h6 id="rating_9" class="mt-2"><span class="details-rating"><i class="fa fa-star"></i></span>Loading... </h6>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
     <!--/Section-->
 

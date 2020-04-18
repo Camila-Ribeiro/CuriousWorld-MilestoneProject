@@ -29,7 +29,7 @@ function populateInspiration(places, cb) {
 populateInspiration("hotels",function(){
     populateInspiration("restaurants",function(){
         populateInspiration("museums", function(){
-            // getURLVenuesId(collectAllVenuesId);
+            getURLVenuesId(collectAllVenuesId);
         });
     });
 });
@@ -88,7 +88,7 @@ function getRatings(i,url) {
     getAllData(url, function(resp) {
         var rating = JSON.parse(resp).response.venue.rating; 
         var getSingleRating = document.getElementById(`rating_${i+1}`);
-        getSingleRating.insertAdjacentHTML("beforeend", rating); 
+        getSingleRating.innerHTML = `<span class="details-rating"><i class="fa fa-star"></i></span> ${rating}`; 
     });
 }
 
