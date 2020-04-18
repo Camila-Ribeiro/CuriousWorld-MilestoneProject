@@ -1,8 +1,7 @@
-[#Curious World Website](https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/)
+[# Curious World Website](https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/)
 
-***
-##Table of Contents
-***
+## Table of Contents
+
 1. [UX](##UX) 
 *  [User Stories](###User Stories)
 *  [Libraries/ Framework Used](###Libraries/ Framework Used)  
@@ -25,12 +24,10 @@
 *  [Acknowledgements](###Acknowledgements)
 
 ***
-# Curious World Website Version 1.1
-Curious World is a website designed for users with interest in find out information about hotels, restaurants and museums across different cities all over the world. 
- 
+
  
 ## UX
-Curious World is a website designed for users that want to look at photos, reviews, ratings, maps, websites and phone number about hotels, restaurants and museums across different cities all over the world. 
+Curious World is a website designed for users with interest in find out information about hotels, restaurants and museums across different cities all over the world. It offers photos, reviews, ratings, maps, websites and phone numbers.
 The website is simple and structured in a way that is easy to navigate and find the information needed. It was designed based on database from Foursquare API.
  
 ### User Stories
@@ -52,7 +49,7 @@ The website is simple and structured in a way that is easy to navigate and find 
 
 ### [Wireframes] (https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/UX/UX-Wireframe.pdf)
 
- back to [top](##Table of Contents)
+ back to [top](## Table of Contents)
 ***
 
 ## Features
