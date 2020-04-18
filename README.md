@@ -1,7 +1,7 @@
-[Curious World Website](https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/)
+[#Curious World Website](https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/)
 
 ***
-[Table of Contents](##Table of Contents)
+##Table of Contents
 ***
 1. [UX](##UX) 
 *  [User Stories](###User Stories)
@@ -34,13 +34,13 @@ Curious World is a website designed for users that want to look at photos, revie
 The website is simple and structured in a way that is easy to navigate and find the information needed. It was designed based on database from Foursquare API.
  
 ### User Stories
-- As a user I want to find out about hotels in London City, to perform this action I clicked on input where contains the message "Please type city's name (i.e Dublin)", then I selected the radio button "Hotels" and clicked on "search" button, doing that I achieved my goal to see a list of hotels in London.
+- As a user I want to find out about hotels in London City, to perform this action I clicked on input where contains the message "Please type city's name (i.e Dublin)", then I selected the radio button "Hotels" and clicked on "search" button, doing that I achieved my goal to see a list of hotels in London.
 
 - As a user I want to get inspiration about random places like hotels, restaurants and museums, then I clicked on place titles or images and got redirected to the Details page where I can find all the details about that selected place that I made on the homepage. My goal was accomplished and now I can read detailed information about the selected place such as full address, phone number, website, reviews, ratings and check the location on map.
  
 - As a user I want to check the details about a specific hotel from the Search Results page, then I clicked on "Read More" button and got redirected to the Details page where I can find all the details about that selected hotel. My goal was accomplished and now I can read detailed information about the Hotel in London such as full address, phone number, website, reviews, ratings and check the location on map.
  
-- As a user I want to contact Curous World website, to perform this action I clicked on "Contact Us" on the Menu Navigation and filled up the form with my full name, email address and message and submitted my query, doing that I achieve my goal to contact Curious World.
+- As a user I want to contact Curous World website, to perform this action I clicked on "Contact Us"on the Menu Navigation and filled up the form with my full name, email address and message and submitted my query, doing that I achieve my goal to contact Curious World.
 
 ### Libraries/ Framework Used
 - [Bootstrap 4](https://getbootstrap.com/)
