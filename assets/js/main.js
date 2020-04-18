@@ -29,7 +29,7 @@ function populateInspiration(places, cb) {
 populateInspiration("hotels",function(){
     populateInspiration("restaurants",function(){
         populateInspiration("museums", function(){
-            getURLVenuesId(collectAllVenuesId);
+            // getURLVenuesId(collectAllVenuesId);
         });
     });
 });

@@ -3,9 +3,13 @@
 ## Table of Contents
 1. [**UX**](#ux)
     - [**User Stories**](#user-stories)
-    - [**Libraries/Framework Used**](#Libraries/-framework-used)
+    - [**Design**](#design)
+        - [**Libraries/Framework Used**](#Libraries/-framework-used)
+        - [**Color Scheme**](#color-scheme)
+        - [**Icons**](#icons)
+        - [**Typography**](#typography)
     - [**Wireframes**](#wireframes)
-
+        
 2. [**Technologies Used**](#technologies-used)
     - [**Front-End Technologies**](#front-end-technologies)
 
@@ -39,20 +43,50 @@ The website is simple and structured in a way that is easy to navigate and find 
  
 - As a user I want to contact Curous World website, to perform this action I clicked on "Contact Us" on the Menu Navigation and filled up the form with my full name, email address and message and submitted my query, doing that I achieve my goal to contact Curious World.
 
-### Libraries/ Framework Used
+
+### Design
+
+A standard layout is fully responsive on mobile devices and larger screens.
+
+
+#### Libraries/ Framework Used
 - [Bootstrap 4](https://getbootstrap.com/)
-- [Font Awesome](https://fontawesome.com/)
-- [Google Fonts](https://fonts.google.com/)
+- [Google Maps](https://cloud.google.com/maps-platform/maps)
 - [jQuery](https://jquery.com/download/)
 - [Jasmine](https://jasmine.github.io/)
 - [Jasmine - jQuery](https://github.com/velesin/jasmine-jquery)
 
+
+#### Color Scheme
+
+- ![#343A40](https://placehold.it/15/343A40/343A40) navbar
+- ![#EBECF0](https://placehold.it/15/EBECF0/EBECF0) body background
+- ![#FFC107](https://placehold.it/15/FFC107/FFC107) yellow button
+- ![#FEBB00](https://placehold.it/15/FEBB00/FEBB00) yellow star
+- ![#FFFFFF](https://placehold.it/15/FFFFFF/FFFFFF) white cards
+- ![#3A88FD](https://placehold.it/15/3A88FD/3A88FD) ![#343A40](https://placehold.it/15/343A40/343A40) ![#EBECF0](https://placehold.it/15/EBECF0/EBECF0) ![#FFC107](https://placehold.it/15/FFC107/FFC107) ![#FEBB00](https://placehold.it/15/FEBB00/FEBB00) loading gif
+
+
+#### Icons
+
+- [Font Awesome 5.13.0](https://fontawesome.com/)
+    - 4 *Font Awesome* icons were used on hamburguer menu, rating stars, phone numbers and websites.
+        - [bars](https://fontawesome.com/icons/bars?style=solid)
+        - [star](https://fontawesome.com/icons/star?style=solid)
+        - [phone](https://fontawesome.com/icons/phone?style=solid)
+        - [globe](https://fontawesome.com/icons/globe-americas?style=solid)
+
+#### Typography
+
+- 2 [Google Fonts](https://fonts.google.com/) were used across the site:
+    - [Lora](https://fonts.google.com/specimen/Lora) : main body text.
+    - [Montserrat](https://fonts.google.com/specimen/Montserrat) : headings.
+
+
 ### Wireframes
-My wireframes for this project can be found in the [**wireframes**](assets/wireframes/) folder.
-[Wireframes] (https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/UX/UX-Wireframe.pdf)
-
-The website version for mobile and ipad works very similar to the desktop and Ipad pro version except the deck cards across the desktop and Ipad pro are placed on set of 2 or 3 cards in a row and for mobile it is stacked.
-
+My wireframes for this project can be found in the UX folder.
+[Desktop Wireframe] (https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/UX/desktop-wireframe/desktop.pdf)
+[Mobile Wireframe] (https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/UX/mobile-wireframe/mobile.pdf)
 
 ##### back to [top](#table-of-contents)
  
@@ -79,32 +113,51 @@ The website version for mobile and ipad works very similar to the desktop and Ip
 ***
 
 ## Testing
-Automated and manual testing were conducted and also a user test with two users. A few bugs were found during this process like .....? 
-More details can be found on my [manual Testing file](../blob/master/testing/testing.md)
-
-I also have validated all files using online validation sites:
+Automated and manual testing were conducted during this project. I also have validated all files using online validation sites cited bellow and checked across differents browsers and devices.
 
 ### Validators 
 
 #### HTML
-* [W3C HTML Validator](https://validator.w3.org/)
+* [W3C HTML Validator](https://validator.w3.org/) - `Document checking completed. No errors or warnings to show.`
+
+
 #### CSS
 * [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+
+
 #### JavaScript
 * [JShint](https://jshint.com/)
+
+### Manual Testing
+More details can be found on my [manual testing folder] (testing/manual)
+
+I have also created a testing matrix ([raw Excel file here](testing/manual/testing-curious-world.xlsx)).
+
+**Testing Matrix**
+
+![Testing Matrix](testing/manual/testing-curious-world.jpg?raw=true "Testing Simon Matrix")
+
+**Chrome's DevTools Audit Report**
+
+| Performance | Accessibility | Best Practices | SEO | PWA |
+| :---: | :---: | :---: | :---: | :---: |
+| 98% | 100% | 100% | 91% | - |
+
+![Chrome DevTools Audit Report](testing/manual/audit-google-lighthouse.jpg?raw=true "Chrome Audit Report")
+
 
 ### Automated Testing
 I used [Jasmine 3.5.0](https://jasmine.github.io/) in conjunction with [jasmine-jquery 2.1.1](https://github.com/velesin/jasmine-jquery) to build all automated tests (test-driven development). These tests can be found in the [testing/automated(../blob/master/Testing.md) folder.
 
 There are 13 tests in my specs, all successfully passing, with 0 failures.
-![Jasmine Spec Results](assets/images/jasmine-test.jpg "Jasmine Spec Results")
+![Jasmine Spec Results](testing/automated/jasmine-test.jpg "Jasmine Spec Results")
 
 <details>
-<summary><b>CLICK HERE</b> to see tests on the <b>My btnSearch.onclick function</b></summary>
+<summary><b>CLICK HERE</b> to see tests on the <b>Curious World website testing</b></summary>
 
 - describe: The Search Button
-- describe: Get the values of radio buttons and checked by default
-- describe: My inputLoc.oninput function
+- describe: Get the values from radio buttons
+- describe: Search input text inline validation
 
 </details>
 <details>
@@ -113,13 +166,14 @@ There are 13 tests in my specs, all successfully passing, with 0 failures.
 - should exist
 - should trigger click on Search button
 - should clear session storage when click on Search button
-- should get value from radio button places when is checked
-- should validate when value of input(inputLoc) is empty
-
+- should get value from input radio when click on Search button
+- should validate when value of input text is empty when click on Search button
+- Session storage setItem when click on Search button
+- should add keys/values to the session storage when click on Search button
 </details>
 
 <details>
-<summary><b>CLICK HERE</b> to see tests on the <b>Get the values of radio buttons and checked by default</b></summary>
+<summary><b>CLICK HERE</b> to see tests on the <b>Get the values from radio buttons</b></summary>
 
 - should exist
 - radio button should be hotels value
@@ -129,11 +183,11 @@ There are 13 tests in my specs, all successfully passing, with 0 failures.
 </details>
 
 <details>
-<summary><b>CLICK HERE</b> to see tests on the <b>My inputLoc.oninput function</b></summary>
+<summary><b>CLICK HERE</b> to see tests on the <b>Search input text inline validation</b></summary>
 
 - should exist
-- should validate when value of input(inputLoc) is deleted by user
-- should validate when value of input(inputLoc) is filled
+- should validate when value of input text is deleted by user
+- should validate when value of input text has value typed by user
 
 </details>
 
@@ -146,27 +200,67 @@ My [Curious World repository](https://camila-ribeiro.github.io/CuriousWorld-Mile
 
 This website was deployed on GitHub pages built from the Master branch to publish the project.
 To run this project locally, download the files and navigate through the index.html to start.
- 
+
+### Local Deployment
+
+To run this project locally on your own system, you will need to clone this repository and need to have [GIT](https://www.atlassian.com/git/tutorials/install-git) installed and any suitable IDE.
+
+Next, to proceed with local deployment, you can...
+
+EITHER:
+- **Download** this GitHub repository
+    - by clicking the green "*Clone or download*" button above,
+    - select *Download Zip*,
+    - this will download the project as a zip-file (*remember to unzip it first*).
+
+### Remote Deployment
+
+This site was deployed using [GitHub Pages](https://pages.github.com/) using the **master branch**.
+
+Deployed Site:
+- [https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/](https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/)
+
+Once you have the project setup locally, you can proceed to deploy it remotely with the following steps:
+
+1. Navigate to your GitHub repository:
+    - `https://github.com/USERNAME/REPO`
+2. Click on the **Settings** tab at the top:
+    - `https://github.com/USERNAME/REPO/settings`
+3. Scroll down on that page to the **GitHub Pages** section.
+4. The first drop-down field should be **Source** with *None* preselected.
+5. Select **master branch** from the list.
+6. The page should refresh.
+7. Scroll back down to the **GitHub Pages** section.
+8. You should now have a deployed link:
+    - `https://USERNAME.github.io/REPO`
+
+**IMPORTANT NOTE**:
+- Please allow a few minutes to pass before opening your newly deployed link! Clicking this link too quickly may result in a failure to build the site, causing an Error 404 page instead.
+
+Congratulations! Your project should be deployed successfully on GitHub Pages! :tada: 
+
 ##### back to [top](#table-of-contents)
 
 *** 
 ## Credits
+
 ### Content
-- The text for section Homepage and About was copied from (https://www.lipsum.com/)
-- The text for section Services was copied from:
-* (https://drjosephjensen.com/microneedling/)
-* (https://www.lushmedicalclinic.com.sg/skin-booster)
-* (https://www.medicalnewstoday.com/articles/322060.php)
-* (https://www.healthline.com/health/mesotherapy)
-* (https://slimspa.ae/blog/cavitation-removes-fat-aids-body-slimming-goals/)
-* (https://www.kimstotalbeauty.com/eyelash-extensions/)
-* (http://www.essentialbeautytreatment.com/eye-lashes-extension.html)
-* (https://www.reveal.ie/lashes-2/oui-russian-volume-lash-extensions)
-* (https://www.lipsum.com/)
-* (https://flowerbeautyandnails.wordpress.com/)
+
+- [Foursquare API](https://developer.foursquare.com/) - Database content
+- [Travel Tim](https://github.com/TravelTimN/) - README.md inspiration
+- [HTML5 Rocks](https://www.html5rocks.com/en/tutorials/cors/) - Using CORS for personal learning
+- [Code Boxx](https://code-boxx.com/full-screen-css-loading-spinner/) - Loading spinner inspiration
+- [Stack Overflow](https://stackoverflow.com/questions/42261524/how-to-window-scrollto-with-a-smooth-effect) - Smooth effect on page scroll
+- [Stack Overflow](https://stackoverflow.com/questions/18393981/append-vs-html-vs-innerhtml-performance) - Best performance to apply innerHTML
+- [Github Jasmine](https://github.com/jasmine/jasmine/issues/299) - Reference for Jasmine testing using session storage
 
 ### Media
-The photos used on this site were obtained from Foursquare API (https://developer.foursquare.com/).
+
+- [Foursquare API](https://developer.foursquare.com/) - Database images.
+- [LOADING.IO](https://loading.io/) - Animated icons.
+- [Unsplash](https://unsplash.com/) - Photo by Rana Sawalha on homepage.
+- [Unsplash](https://unsplash.com/) - Photo by Dino Reichmuth on contact page.
+
 
 ### Acknowledgements
 I received inspiration for this project from .....?

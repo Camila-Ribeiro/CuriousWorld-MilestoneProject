@@ -68,11 +68,11 @@ section.inspiration h3:hover{
   margin-bottom: 100px;
 }
 .hero-img {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)),
+  background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
     url(../images/travel-img.jpg);
   height: 500px;
   background-size: cover;
-  background-position: top;
+  background-position: 50% 40%;
   background-repeat: no-repeat;
 }
 .m-jumbotron {
@@ -172,8 +172,10 @@ section.inspiration h3 {
 .hero-img-contact {
   background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)),
     url(../images/travel-plans-2018.jpg);
-  height: 250px;
-  background-position: 50%;
+  height: 320px;
+  background-position: 50% 66%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .pt-70 {
   padding-top: 70px;
