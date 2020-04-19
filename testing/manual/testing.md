@@ -23,6 +23,7 @@
 6. Try to click on a photo from Museums's card which displays three photos to verify if it is opening the "detail-page.html" page containing information about the same place shown on Museums's card on index.html page
 7. Try to click on a museum's name title from Museum's which displays three photos to verify if it is opening the "detail-page.html" page containing information about the same place shown on Museum's card on index.html page
 8. Try to click on "Contact Us" from the Menu navigation to verify if it is opening the contact.html
+9. Bugs were detected when sometimes information(data) about hotels, restaurantes or museums appear duplicated or triplicated on Inspire Me section. I tried to fix it but I couldn't. It is a feature left to implement later after I graduate from the course.
 
 
 #### Search Results:
