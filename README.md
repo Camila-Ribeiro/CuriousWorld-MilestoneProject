@@ -167,8 +167,8 @@ Automated and manual testing were conducted during this project. I also have val
             - Largest function has 8 statements in it, while the median is 2.
             - The most complex function has a cyclomatic complexity value of 2 while the median is 1.
         - Two undefined variables
-            - emailjs
-            - response
+            - `emailjs`
+            - `response`
         - One unused variable
             - sendMail
 
@@ -200,7 +200,8 @@ I have also created a testing matrix ([raw Excel file here](testing/manual/testi
 ### Automated Testing
 I used [Jasmine 3.5.0](https://jasmine.github.io/) in conjunction with [jasmine-jquery 2.1.1](https://github.com/velesin/jasmine-jquery) to build all automated tests (test-driven development). These tests can be found in the [testing/automated(../blob/master/Testing.md) folder.
 
-There are 13 tests in my specs, all successfully passing, with 0 failures.
+There are **13** tests in my specs, all successfully passing, with **0** failures.
+
 ![Jasmine Spec Results](testing/automated/jasmine-test.png "Jasmine Spec Results")
 
 <details>
@@ -247,7 +248,7 @@ There are 13 tests in my specs, all successfully passing, with 0 failures.
 *** 
 ## Deployment
 
-My [Curious World repository](https://camila-ribeiro.github.io/CuriousWorld-MilestoneProject/) was developed locally using **VS Code**, and all commits were pushed to **GitHub** using **Git**.
+My [Curious World repository](https://github.com/Camila-Ribeiro/CuriousWorld-MilestoneProject) was developed locally using **VS Code**, and all commits were pushed to **GitHub** using **Git**.
 
 This website was deployed on GitHub pages built from the Master branch to publish the project.
 To run this project locally, download the files and navigate through the index.html to start.
@@ -258,7 +259,6 @@ To run this project locally on your own system, you will need to clone this repo
 
 Next, to proceed with local deployment, you can...
 
-EITHER:
 - **Download** this GitHub repository
     - by clicking the green "*Clone or download*" button above,
     - select *Download Zip*,

@@ -15,7 +15,7 @@ function getRandomLocation(){
         barcelona: "41.3947,2.0785",
         istanbul: "41.0049,28.7319"};
     var keys = Object.keys(arr);
-    return arr[keys[ keys.length * Math.random() < 0]];
+    return arr[keys[ keys.length * Math.random() << 0]];
 }
 
 // SEND REQUEST
@@ -45,7 +45,7 @@ function populateInspiration(places, cb) {
 populateInspiration("hotels",function(){
     populateInspiration("restaurants",function(){
         populateInspiration("museums", function(){
-            // getURLVenuesId(collectAllVenuesId);
+            getURLVenuesId(collectAllVenuesId);
         });
     });
 });

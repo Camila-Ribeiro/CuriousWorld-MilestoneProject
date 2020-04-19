@@ -113,7 +113,6 @@ function getReview(items){
         var allItems = items[0].items;
         for (var i = 0; i < allItems.length; i++) { 
             var review = allItems[i];
-
             if (review.description !== "" && i < 3) {
                 allReviews.push(`<div class="card">
                 <img src="${review.user.photo.prefix + "original" + review.user.photo.suffix}" class="w-25 mt-1 rounded-circle mx-auto card-img-top" alt="..." /><div class="card-body"><h5 class="card-title">${review.user.firstName}</h5><p class="card-text">${review.description}</p></div></div>`);
