@@ -125,8 +125,7 @@ function handlePagination(event) {
     event.classList.add("active");
     smoothScroll();
 }
-
-//code from https://stackoverflow.com/questions/42261524/how-to-window-scrollto-with-a-smooth-effect
+ 
 const smoothScroll = (h) => {
     let i = h || 0;
     if (i < 90) {

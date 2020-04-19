@@ -59,7 +59,7 @@ function getPhotos(items){
                 photoSlides.push(`${allItems[0] ? `<div class="carousel-item ${i === 0 ? "active" : ""}"><img src="${allItems[i].prefix + 200 + "x" + 100 + allItems[i].suffix}" class="d-block w-100" alt="..."></div>` :`<div class="carousel-item"><img src="${allItems[i].prefix + 200 + "x" + 100 + allItems[i].suffix}" class="d-block w-100" alt="..."></div>`}`);
                 document.getElementById("carousel_details").innerHTML = photoSlides.join("");
             } else {
-                photoSlides.push(`<img src="${allItems[i].prefix + 200 + "x" + 100 + allItems[i].suffix}" class="img-media img-fluid" alt="image-not-available">`);
+                photoSlides.push(`<img src="${allItems[i].prefix + 200 + "x" + 100 + allItems[i].suffix}" class="img-media img-fluid w-100" alt="image-not-available">`);
                 document.getElementById("single_photo").innerHTML = photoSlides.join("");
             } 
         }

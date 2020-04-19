@@ -228,7 +228,7 @@ img {
 }
 /* ------------------------- media queries */
 /*mobile devices*/
-@media (max-device-width: 734px) {
+@media (max-width: 734px) {
   /*index*/
   .inspiration {
     margin-top: 40px;
@@ -238,10 +238,16 @@ img {
     height: 300px;
   }
   .mobile-title {
-    font-size: 2rem;
+    font-size: 1.85rem;
   }
   .m-jumbotron {
     padding-top: 70px;
+  }
+  .form-check-inline {
+    margin-right: 0;
+  }
+  .form-check-label {
+    font-size: 0.875rem;
   }
   section.container-hero .jumbotron {
     padding: 20px;
