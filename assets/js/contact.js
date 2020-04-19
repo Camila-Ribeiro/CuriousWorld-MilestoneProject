@@ -35,7 +35,7 @@ function sendMail(contactForm) {
   return false;
 }
 
-//VALIDATION
+//ON INPUT VALIDATION
 fullName.oninput = function(){
   validateInputs(fullName,feedback_name);
 };
@@ -48,6 +48,7 @@ message.oninput = function(){
   validateInputs(message,feedback_text);
 };
 
+//VALIDATE ALL INPUTs
 function validateInputs(input,feedback){
   if (input.value.length <= 0) {
     input.classList.add("is-invalid"); 
@@ -59,6 +60,7 @@ function validateInputs(input,feedback){
   }
 }
 
+//AFTER SEND EMAIL RESET FORM
 function resetForm() {
   var arr_feedback = document.querySelectorAll(".valid-feedback");
   var arr_valid = document.querySelectorAll(".is-valid");
