@@ -2,8 +2,12 @@ var coordinates = getRandomLocation();
 var url =
 `https://api.foursquare.com/v2/venues/explore?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323&limit=50&ll=${coordinates}&query=`;
 var collectAllVenuesId = [];
+var btnSearch = document.getElementById("button_search");
+var inputLoc = document.getElementById("places_loc");
+var inputMessage = document.getElementById("places_loc_error");
 
 // https://stackoverflow.com/questions/2532218/pick-random-property-from-a-javascript-object
+//GET RANDON LAT,LNG FOR INSPIRE ME SECTION
 function getRandomLocation(){
     var arr = {paris: "48.8566,2.3522", 
         dublin: "53.3498,6.2603", 
@@ -18,6 +22,7 @@ function getRandomLocation(){
     var keys = Object.keys(arr);
     return arr[keys[ keys.length * Math.random() << 0]];
 }
+
 // https://www.html5rocks.com/en/tutorials/cors/ 
 // SEND REQUEST
 function getAllData(url, callback) {
@@ -34,6 +39,7 @@ function getAllData(url, callback) {
     xhr.send();
 }
 
+//POPULATE INSPIRE ME SECTION
 function populateInspiration(places, cb) {
     getAllData(url + places, function(resp) {
         var data = JSON.parse(resp).response.groups[0].items;
@@ -51,7 +57,7 @@ populateInspiration("hotels",function(){
     });
 });
 
-//LOOP RANDOM ITEMS INTO INSPIRE ME SECTION
+//LOOP RANDOM 3 ITEMS PER CARD TO DISPLAY IN INSPIRE ME SECTION
 function getRandomItems(list, data, places) {
     for (var index = 0; index < list.length; index++) {   
         if (list.length >= 3 && index < 3) {
@@ -89,7 +95,7 @@ function getTitleInspiration(obj,i,places) {
     }
 }
 
-// GET ALL VENUES's URL
+// GET ALL VENUES's URL TO DISPLAY RATINGS AND PHOTOS FROM API
 function getURLVenuesId(id) {  
     var arrId = id;
     for (var index = 0; index < arrId.length; index++) {
@@ -129,11 +135,7 @@ function getPhotos(i,url,id) {
     });
 }
 
-// GET SEARCH
-var btnSearch = document.getElementById("button_search");
-var inputLoc = document.getElementById("places_loc");
-var inputMessage = document.getElementById("places_loc_error");
-
+//VALIDATION SEARCH BUTTON
 btnSearch.onclick = function(){
     sessionStorage.clear();
     var radioPlaces = document.querySelector('input[name="places"]:checked').value;
@@ -148,6 +150,7 @@ btnSearch.onclick = function(){
      }
 };
 
+// ON INPUT TEXT VALIDATION
 inputLoc.oninput = function(){
     if (inputLoc.value == "" ||  inputLoc.value == null) {
         inputLoc.classList.add("border-danger");
@@ -158,6 +161,7 @@ inputLoc.oninput = function(){
     }
 };
 
+//HANDLE CLICK TO ADD ID TO THE SESSION STORAGE AND GO TO DETAIL PAGE
 function handleClickDetails(id){
     sessionStorage.setItem("place-id",id);
     window.location.href='detail-page.html';

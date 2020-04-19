@@ -28,6 +28,7 @@ window.addEventListener("load", function() {
     }  
     populateDetails();
 });
+
 // SEND REQUEST
 function getAllData(url, callback) {
     var xhr = new XMLHttpRequest();
@@ -83,6 +84,7 @@ function getTimes(hours) {
         }
     }
 }
+
 // GET WEBSITE URLs TO POPULATE CARD
 function getWebsite(url){
     if (url === null || typeof url === "undefined" ) {
