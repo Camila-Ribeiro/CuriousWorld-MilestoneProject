@@ -173,7 +173,7 @@ I have tried automated test as much as possible but based on the fact that it is
         - One unused variable
             - sendMail
 
-    - File: [contact.js](testing/automated/scripts/tests.js)
+    - File: [tests.js](testing/automated/scripts/tests.js)
         - Metrics:
             - There are 2 functions in this file.
             - Function with the largest signature take 0 arguments, while the median is 0.
@@ -183,7 +183,7 @@ I have tried automated test as much as possible but based on the fact that it is
 ### Manual Testing
 More details can be found on my [manual testing folder] (testing/manual/)
 
-I have also created a testing matrix ([raw Excel file here](testing/manual/testing-curious-world.xlsx)).
+I have also created a testing matrix ([raw Excel file here](testing/manual/curious_world-testing-milestone.xlsx)).
 
 **Testing Matrix**
 
