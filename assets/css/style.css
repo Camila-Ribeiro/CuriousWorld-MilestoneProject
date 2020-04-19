@@ -208,6 +208,9 @@ img {
 .card {
   border: none;
 }
+.media-body {
+  width: 100%;
+}
 .page {
   display: none;
 }
@@ -222,7 +225,6 @@ img {
 .page-item.active{
   pointer-events: none;
 }
-
 .page-link {
   color: #0e0101;
   background-color: #fff;
@@ -268,6 +270,9 @@ img {
   .media {
     flex-direction: column;
   }
+  .img-media {
+    width: 100%;
+  }
   .media-wrapper-footer {
     margin-top: 50px;
   }
@@ -279,14 +284,14 @@ img {
     padding: 10px;
   }
 }
-/* Medium devices (tablets, 768px and up)*/
 @media (max-width: 767px) {
   /*Search Results*/
   .media {
     flex-direction: column;
   }
   .media-wrapper-footer {
-    margin-top: 70px;
+    margin-top: 50px;
+    margin-bottom: 30px;
   }
   
 }

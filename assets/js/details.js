@@ -28,7 +28,7 @@ window.addEventListener("load", function() {
     }  
     populateDetails();
 });
-
+// SEND REQUEST
 function getAllData(url, callback) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
@@ -47,6 +47,7 @@ function getAllData(url, callback) {
     xhr.send();
 }
 
+// GET PHOTOS TO POPULATE CARD
 function getPhotos(items){
     var photoSlides =[];
     if (items === undefined || items.length == 0) {
@@ -66,6 +67,7 @@ function getPhotos(items){
     }   
 }
 
+// GET OPENING HOURS TO POPULATE CARD
 function getTimes(hours) {
     if (typeof hours === "undefined") {
         document.getElementById("opening_hours").innerHTML = "N/A";
@@ -81,7 +83,7 @@ function getTimes(hours) {
         }
     }
 }
-
+// GET WEBSITE URLs TO POPULATE CARD
 function getWebsite(url){
     if (url === null || typeof url === "undefined" ) {
         document.getElementById("website").innerHTML = "N/A";
@@ -95,6 +97,7 @@ function getWebsite(url){
     }
 }
 
+// GET PHONE NUMBER TO POPULATE CARD
 function getPhoneNumber(number){
     if (typeof number.phone === "undefined") {
         document.getElementById("phone_number").innerHTML = "N/A";
@@ -103,7 +106,8 @@ function getPhoneNumber(number){
         document.getElementById("phone_number").innerHTML = PhoneNumber;
     }
 }
-// data.listed.groups
+
+// GET REVIEWS TO POPULATE CARD
 function getReview(items){
     var allReviews =[];
     if (items[0].items.length === 0) {
@@ -118,7 +122,8 @@ function getReview(items){
                 <img src="${review.user.photo.prefix + "original" + review.user.photo.suffix}" class="w-25 mt-1 rounded-circle mx-auto card-img-top" alt="..." /><div class="card-body"><h5 class="card-title">${review.user.firstName}</h5><p class="card-text">${review.description}</p></div></div>`);
                 document.getElementById("reviews").innerHTML = allReviews.join("");
             }
-            else if(review.description == "" || review.description.length < 0){
+            else if(review.description == "" && i == 0){
+                console.log('A:LO')
                 allReviews.push('<div class="card"><div class="card-body"><h5>No Reviews available</h5></div></div>');
                 document.getElementById("reviews").innerHTML = allReviews.join("");
             }
@@ -126,6 +131,7 @@ function getReview(items){
     }   
 }
 
+// DISPLAY MAP LOCATION
 function getLocation(lat,lng){
     document.getElementById("google_maps").src = `https://maps.google.com/maps/embed/v1/place?key=AIzaSyAOySuSdP6NVXz7LglBAl1sp1CHXrZeFqQ&q=${lat},${lng}`;
 }

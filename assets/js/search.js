@@ -83,6 +83,7 @@ function handleClick(id) {
    window.location.href='detail-page.html';
 }
 
+// https://stackoverflow.com/questions/18393981/append-vs-html-vs-innerhtml-performance
 //DISPLAY DATA INSIDE DIVS AND PAGINATION
 function displayData(data){
     var html =[],
@@ -95,8 +96,8 @@ function displayData(data){
         if(index % 10 === 0){    
             pagination.push(`<li class="page-item ${page === 1 ? 'active' : ''}" onclick="handlePagination(this)"><span class="page-link">${page}</span></li>`);       
             index !== 0 ? html.push(`</div><div class="page page${page}">`) : html.push(`<div class="page page${page} currentPage">`);
-            html.push(`<div class="row"><div class="col"><div class="media mb-3 media-container"><img id="photo_${index + 1}" 
-            src="" class="img-media img-fluid" alt="..."><div class="media-body"><div class="media-wrapper"><h2 class="mt-0">${place.name}</h2>
+            html.push(`<div class="row"><div class="col"><div class="media mb-5 media-container"><img id="photo_${index + 1}" 
+            src="" class="img-media img-fluid" alt="${place.name} photo"><div class="media-body"><div class="media-wrapper"><h2 class="mt-0">${place.name}</h2>
             <p>${typeof place.location.address === "undefined" ? "" :place.location.address + ","}
             ${typeof place.location.city === "undefined" ? "" :place.location.city + '<br/>'} ${typeof place.location.country === "undefined" ? 
             "" :place.location.country} </p><div class="media-wrapper-footer"><button onclick="handleClick('${place.id}');" 
@@ -104,8 +105,8 @@ function displayData(data){
             class="details-rating"></span></div></div></div></div></div></div>`);
             page++;
         } else {
-            html.push(`<div class="row"><div class="col"><div class="media mb-3 media-container"><img id="photo_${index + 1}" 
-            src="" class="img-media img-fluid" alt="..."><div class="media-body"><div class="media-wrapper"><h2 class="mt-0">${place.name}</h2>
+            html.push(`<div class="row"><div class="col"><div class="media mb-5 media-container"><img id="photo_${index + 1}" 
+            src="" class="img-media img-fluid" alt="${place.name} photo"><div class="media-body"><div class="media-wrapper"><h2 class="mt-0">${place.name}</h2>
             <p>${typeof place.location.address === "undefined" ? "" :place.location.address + ","}
             ${typeof place.location.city === "undefined" ? "" :place.location.city + '<br/>'} ${typeof place.location.country === "undefined" ? 
             "" :place.location.country} </p><div class="media-wrapper-footer"><button onclick="handleClick('${place.id}');" 
@@ -127,6 +128,7 @@ function handlePagination(event) {
     smoothScroll();
 }
 
+// https://stackoverflow.com/questions/42261524/how-to-window-scrollto-with-a-smooth-effect 
 const smoothScroll = (h) => {
     let i = h || 0;
     if (i < 90) {
@@ -179,7 +181,7 @@ function nextPage(event) {
         resetClass();
         document.querySelector(`.page${next_page}`).classList.add("currentPage");
         nextListItem.classList.add("active");
-        //smoothScroll();
+        smoothScroll();
     }
     if(last_page == null) {
         event.classList.add("d-none");

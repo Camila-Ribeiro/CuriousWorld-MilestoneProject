@@ -53,6 +53,7 @@ describe("Curious World website testing", () => {
             expect(spyEvent).toHaveBeenTriggered();
         });
 
+        // https://github.com/jasmine/jasmine/issues/299
         it("should clear session storage when click on Search button", () => {
             let spyEvent = spyOnEvent('#button_search', 'click');
             let store = {};

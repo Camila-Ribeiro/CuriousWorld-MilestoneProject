@@ -115,6 +115,10 @@ My wireframes for this project can be found in the UX folder.
 ## Testing
 Automated and manual testing were conducted during this project. I also have validated all files using online validation sites cited bellow and checked across differents browsers and devices.
 
+adding in your README that you've tried (they can see from your commit history), but just not working based on the fact that it's purely running entirely from the XHR itself.
+And add something to README to say that it's a "feature left to implement" later after you graduate from the course perhaps.
+A lot of projects don't have automated testing, but you therefore need to supply a lot of manual testing methods to show that you've done at least some sort of testing.
+
 ### Validators 
 
 #### HTML
@@ -186,7 +190,7 @@ I have also created a testing matrix ([raw Excel file here](testing/manual/testi
 
 **Testing Matrix**
 
-![Testing Matrix](testing/manual/testing-curious-world.jpg?raw=true "Testing Simon Matrix")
+![Testing Matrix](testing/manual/testing-curious-world.png?raw=true "Testing Curious World")
 
 **Chrome's DevTools Audit Report**
 
@@ -315,7 +319,7 @@ Congratulations! Your project should be deployed successfully on GitHub Pages! :
 
 
 ### Acknowledgements
-I received inspiration for this project from .....?
+I received inspiration for this project from Code Institute - Project Ideas
 
 ##### back to [top](#table-of-contents)
 

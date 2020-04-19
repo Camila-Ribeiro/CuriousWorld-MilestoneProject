@@ -3,6 +3,7 @@ var url =
 `https://api.foursquare.com/v2/venues/explore?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323&limit=50&ll=${coordinates}&query=`;
 var collectAllVenuesId = [];
 
+// https://stackoverflow.com/questions/2532218/pick-random-property-from-a-javascript-object
 function getRandomLocation(){
     var arr = {paris: "48.8566,2.3522", 
         dublin: "53.3498,6.2603", 
@@ -17,7 +18,7 @@ function getRandomLocation(){
     var keys = Object.keys(arr);
     return arr[keys[ keys.length * Math.random() << 0]];
 }
-
+// https://www.html5rocks.com/en/tutorials/cors/ 
 // SEND REQUEST
 function getAllData(url, callback) {
     var xhr = new XMLHttpRequest();
@@ -25,10 +26,10 @@ function getAllData(url, callback) {
     xhr.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
             callback(this.responseText);
-        }
+        } 
     };
     xhr.onerror = function() {
-        alert("Woops, there was an error making the request.");
+        alert("Woops, there was an error making the request."); 
     };
     xhr.send();
 }
