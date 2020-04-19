@@ -251,15 +251,16 @@ Congratulations! Your project should be deployed successfully on GitHub Pages! :
 - [HTML5 Rocks](https://www.html5rocks.com/en/tutorials/cors/) - Using CORS for personal learning
 - [Code Boxx](https://code-boxx.com/full-screen-css-loading-spinner/) - Loading spinner inspiration
 - [Stack Overflow](https://stackoverflow.com/questions/42261524/how-to-window-scrollto-with-a-smooth-effect) - Smooth effect on page scroll
+- [Stack Overflow](https://stackoverflow.com/questions/2532218/pick-random-property-from-a-javascript-object) - Pick random cities for Inspire Me section on homepage
 - [Stack Overflow](https://stackoverflow.com/questions/18393981/append-vs-html-vs-innerhtml-performance) - Best performance to apply innerHTML
 - [Github Jasmine](https://github.com/jasmine/jasmine/issues/299) - Reference for Jasmine testing using session storage
 
 ### Media
 
-- [Foursquare API](https://developer.foursquare.com/) - Database images.
-- [LOADING.IO](https://loading.io/) - Animated icons.
-- [Unsplash](https://unsplash.com/) - Photo by Rana Sawalha on homepage.
-- [Unsplash](https://unsplash.com/) - Photo by Dino Reichmuth on contact page.
+- [Foursquare API](https://developer.foursquare.com/) - Database images
+- [LOADING.IO](https://loading.io/) - Animated icons
+- [Unsplash](https://unsplash.com/) - Photo by Rana Sawalha on homepage
+- [Unsplash](https://unsplash.com/) - Photo by Dino Reichmuth on contact page
 
 
 ### Acknowledgements
