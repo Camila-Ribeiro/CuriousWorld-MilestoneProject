@@ -127,6 +127,57 @@ Automated and manual testing were conducted during this project. I also have val
 
 #### JavaScript
 * [JShint](https://jshint.com/)
+    - File: [main.js](assets/js/main.js)
+        - Metrics:
+            - There are 23 functions in this file.
+            - Function with the largest signature take 3 arguments, while the median is 0.
+            - Largest function has 10 statements in it, while the median is 2.
+            - The most complex function has a cyclomatic complexity value of 4 while the median is 1.
+        - One unused variables
+            - getURLVenuesId
+
+    - File: [search.js](assets/js/search.js)    
+        - Metrics:
+            - There are 20 functions in this file.
+            - Function with the largest signature take 2 arguments, while the median is 1.
+            - Largest function has 12 statements in it, while the median is 4.5.
+            - The most complex function has a cyclomatic complexity value of 11 while the median is 1.5.
+        - Three warnings
+            - Expected an assignment or function call and instead saw an expression.
+            - Control character in string: .
+            - Control character in string: .
+        - Five unused variables
+            - getURLVenuesId
+            - handleClick
+            - handlePagination
+            - prevPage
+            - nextPage
+
+    - File: [details.js](assets/js/details.js)    
+        - Metrics:
+            - There are 12 functions in this file.
+            - Function with the largest signature take 2 arguments, while the median is 1.
+            - Largest function has 18 statements in it, while the median is 5.5.
+            - The most complex function has a cyclomatic complexity value of 7 while the median is 2.
+
+     - File: [contact.js](assets/js/contact.js)
+        - Metrics:
+            - There are 9 functions in this file.
+            - Function with the largest signature take 2 arguments, while the median is 0.
+            - Largest function has 8 statements in it, while the median is 2.
+            - The most complex function has a cyclomatic complexity value of 2 while the median is 1.
+        - Two undefined variables
+            - emailjs
+            - response
+        - One unused variable
+            - sendMail
+
+    - File: [contact.js](testing/automated/scripts/tests.js)
+        - Metrics:
+            - There are 2 functions in this file.
+            - Function with the largest signature take 0 arguments, while the median is 0.
+            - Largest function has 8 statements in it, while the median is 6.5.
+            - The most complex function has a cyclomatic complexity value of 3 while the median is 3.
 
 ### Manual Testing
 More details can be found on my [manual testing folder] (testing/manual/)

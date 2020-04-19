@@ -37,15 +37,15 @@ function sendMail(contactForm) {
 //VALIDATION
 fullName.oninput = function(){
   validateInputs(fullName,feedback_name);
-} 
+};
 
 email.oninput = function(){
   validateInputs(email, feedback_email);
-}
+};
 
 message.oninput = function(){
   validateInputs(message,feedback_text);
-}
+};
 
 function validateInputs(input,feedback){
   if (input.value.length <= 0) {

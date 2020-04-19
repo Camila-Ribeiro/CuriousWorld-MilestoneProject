@@ -217,11 +217,16 @@ img {
 .page-item.active .page-link {
   color: #0e0101;
   background-color: #ffc107;
-  border: 1px solid #dee2e6
+  border: 1px solid #dee2e6;
 }
+.page-item.active{
+  pointer-events: none;
+}
+
 .page-link {
   color: #0e0101;
   background-color: #fff;
+  cursor: pointer;
 }
 .page-item.disabled .page-link {
   color: #0e0101;

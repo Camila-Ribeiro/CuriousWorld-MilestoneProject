@@ -9,7 +9,7 @@ window.addEventListener("load", function() {
     function populateCards(callback) {
         getAllData(urlSearch, function(resp) {
             var data = JSON.parse(resp).response.venues;
-            console.log(data)
+            // console.log(data)
             if (data == "" || data  == null) {
                 var noResults= document.getElementById("no_results");
                 var resultsFound= document.getElementById("results_found");
@@ -118,6 +118,7 @@ function displayData(data){
     document.getElementById("pagination").insertAdjacentHTML("beforeend", pagination.join(""));
 }
 
+// PAGINATION
 function handlePagination(event) {
     var page = event.children[0].innerText;
     resetClass();
@@ -125,7 +126,7 @@ function handlePagination(event) {
     event.classList.add("active");
     smoothScroll();
 }
- 
+
 const smoothScroll = (h) => {
     let i = h || 0;
     if (i < 90) {
@@ -134,7 +135,7 @@ const smoothScroll = (h) => {
         smoothScroll(i + 1);
         }, 10);
     }
-}
+};
 
 function resetClass() {
     var array = document.querySelectorAll(".currentPage");
@@ -145,5 +146,42 @@ function resetClass() {
 
     for (let index = 0; index < active.length; index++) {
         active[index].classList.remove("active");
+    }
+}
+
+function prevPage(event) {
+    var prevListItem = document.querySelectorAll(".page-item.active")[0].previousElementSibling;
+    var prev_page = document.querySelectorAll(".currentPage")[0].previousElementSibling;
+    prev_page = prev_page.className.replace('page page','');
+
+    resetClass();
+    document.querySelector(`.page${prev_page}`).classList.add("currentPage");
+    prevListItem.classList.add("active");
+    
+    if (prev_page <= 1) {
+        event.classList.add("d-none");
+    }
+    if(document.getElementById("btn_next").classList.contains("d-none")){
+        document.getElementById("btn_next").classList.remove("d-none");
+    }
+}
+
+function nextPage(event) {
+    var nextListItem = document.querySelectorAll(".page-item.active")[0].nextElementSibling;
+    var next_page = document.querySelectorAll(".currentPage")[0].nextElementSibling;
+    var last_page = document.querySelectorAll(".currentPage")[0].nextSibling.nextElementSibling;
+
+    if(next_page != null) {
+        next_page = next_page.className.replace('page page','');
+        if (next_page >= 2) {
+            document.getElementById("btn_prev").classList.remove("d-none");
+        }
+        resetClass();
+        document.querySelector(`.page${next_page}`).classList.add("currentPage");
+        nextListItem.classList.add("active");
+        //smoothScroll();
+    }
+    if(last_page == null) {
+        event.classList.add("d-none");
     }
 }

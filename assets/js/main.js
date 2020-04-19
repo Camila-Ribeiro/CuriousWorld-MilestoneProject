@@ -1,6 +1,6 @@
 var coordinates = getRandomLocation();
 var url =
-`https://api.foursquare.com/v2/venues/explore?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323&limit=50&ll=${coordinates}&query=`
+`https://api.foursquare.com/v2/venues/explore?client_id=A3ELKZDU1FE5AHJRUOOFNZSMBA4I1M0JXTS4EIHUQ2PNML3W&client_secret=1ATYJVZ14BROV0XZCKLSB3LESEVSTYH2P0L533MHJ1DI5FKE&v=20180323&limit=50&ll=${coordinates}&query=`;
 var collectAllVenuesId = [];
 
 function getRandomLocation(){
@@ -13,9 +13,9 @@ function getRandomLocation(){
         london: "52.3555,1.1743",
         mexico: "19.3906,-99.2836",
         barcelona: "41.3947,2.0785",
-        istanbul: "41.0049,28.7319"}
+        istanbul: "41.0049,28.7319"};
     var keys = Object.keys(arr);
-    return arr[keys[ keys.length * Math.random() << 0]];
+    return arr[keys[ keys.length * Math.random() < 0]];
 }
 
 // SEND REQUEST
