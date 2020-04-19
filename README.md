@@ -122,7 +122,7 @@ Automated and manual testing were conducted during this project. I also have val
 
 
 #### CSS
-* [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+* [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - `Congratulations! No Error Found.`
 
 
 #### JavaScript
