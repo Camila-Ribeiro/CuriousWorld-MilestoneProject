@@ -7,6 +7,7 @@ var feedback_text= document.getElementById("feedback_text");
 var submit_success = document.getElementById("alert_success");
 var submit_fail = document.getElementById("alert_danger");
 
+// CONTACT FORM SEND E-MAIL
 function sendMail(contactForm) {
   emailjs
     .send("gmail", "googleplaces_milestoneproject", {
