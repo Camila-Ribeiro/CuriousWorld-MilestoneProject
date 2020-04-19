@@ -114,10 +114,7 @@ My wireframes for this project can be found in the UX folder.
 
 ## Testing
 Automated and manual testing were conducted during this project. I also have validated all files using online validation sites cited bellow and checked across differents browsers and devices.
-
-adding in your README that you've tried (they can see from your commit history), but just not working based on the fact that it's purely running entirely from the XHR itself.
-And add something to README to say that it's a "feature left to implement" later after you graduate from the course perhaps.
-A lot of projects don't have automated testing, but you therefore need to supply a lot of manual testing methods to show that you've done at least some sort of testing.
+I have tried automated test as much as possible but based on the fact that it is purely running entirely from the XHR itself I couldn't get more done. It is a feature left to implement later after I graduate from the course. I have conducted a detailed [manual testing] (testing/manual/testing.md) to show that I have testing done.
 
 ### Validators 
 
